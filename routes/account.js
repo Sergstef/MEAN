@@ -15,8 +15,7 @@ router.post('/reg', (req, res) => {
 		lastName: req.body.lastName,
 		phoneNumber: req.body.phoneNumber,
 		email: req.body.email,
-		pwd: req.body.pwd,
-		confirmPwd: req.body.confirmPwd
+		password: req.body.password,
 	});
 
 	User.addUser(newUser, (err, user) => {
@@ -29,12 +28,12 @@ router.post('/reg', (req, res) => {
 
 router.post('/auth', (req, res) => {
 	const email = req.body.email;
-	const password = req.body.pwd;
+	const password = req.body.password;
 	User.getUserByEmail(email, (err, user) => {
 		if(err) throw err;
 		if(!user)
 			return res.json({success: false, msg: "Такой пользователь был не найден"});
-		User.comparePass(pwd, user.pwd, (err, isMatch) => {
+		User.comparePass(pwd, user.password, (err, isMatch) => {
 			if(err) throw err;
 			if(isMatch) {
 				const token = jwt.sign(user, config.secret, {

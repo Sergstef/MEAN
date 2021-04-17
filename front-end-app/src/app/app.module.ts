@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,7 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { ConfirmEqualValidatorDirective } from './registration/confirm-equal-validator.directive';
-
+import { AuthentificationService } from './authentification.service';
 
 @NgModule({
   declarations: [
@@ -23,9 +24,10 @@ import { ConfirmEqualValidatorDirective } from './registration/confirm-equal-val
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule, 
+    HttpClientModule
   ],
-  providers: [],
+  providers: [AuthentificationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
