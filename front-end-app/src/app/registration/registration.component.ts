@@ -12,4 +12,9 @@ export class RegistrationComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  addUser(formObj: any) {
+  	console.log(formObj.name);
+  	return false;
+  }
+
 }

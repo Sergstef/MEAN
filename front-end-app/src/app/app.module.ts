@@ -23,7 +23,7 @@ import { ConfirmEqualValidatorDirective } from './registration/confirm-equal-val
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

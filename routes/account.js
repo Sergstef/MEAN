@@ -13,8 +13,7 @@ router.post('/reg', (req, res) => {
 	let newUser = new User({
 		firstName: req.body.firstName,
 		lastName: req.body.lastName,
-		gender: req.body.gender,
-		age: req.body.age,
+		phoneNumber: req.body.phoneNumber,
 		email: req.body.email,
 		pwd: req.body.pwd,
 		confirmPwd: req.body.confirmPwd

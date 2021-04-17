@@ -1,0 +1,105 @@
+.helloForm {
+	background-color: white;
+	color: #47525E;
+	padding: 25px 0px 70px 0px;
+	height: auto;
+}
+
+.content {
+	padding: 0px 45px 0px 45px;
+}
+
+.helloForm_row {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.helloForm_heading {
+	font-size: 35px;
+	margin-bottom: 20px;
+}
+
+.helloForm_signUp_row {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.signUp_firstInput {
+	width: 179px;
+}
+
+.signUp_secondInput {
+	width: 179px;
+	margin-left: 10px;
+}
+
+.signUp_inputs {
+	margin-bottom: 20px;
+}
+
+.signUp_buttons {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.buttonQuestion {
+	font-size: 20px;
+	margin-bottom: 20px;
+}
+
+.signUp_firstButton {
+	margin-bottom: 15px;
+}
+
+.buttonItem {
+	height: 40px;
+	width: 110px;
+	background-color: #768EA9;
+	border: none;
+	border-radius: 5px;
+	color: white;
+	font-weight: bold;
+	font-size: 18px;
+	letter-spacing: 2px;
+}
+
+.buttonItem:hover {
+	background-color: #84A1C2;
+}
+
+
+@media (max-width: 481px) {
+	.signUp_buttons button{
+		font-size: 15px;
+	}
+	.signUp_inputs {
+		margin-bottom: 20px;
+		display: flex;
+		flex-direction: column;
+	}
+	.signUp_secondInput {
+		margin-left: 0px;
+	}
+	.signUp_firstInput {
+		margin-bottom: 20px;
+	}
+}
+
+@media (max-width: 800px) {
+	.helloForm {
+		padding: 65px 0px 70px 0px;
+	}
+}
+
+@media (max-width: 403px) {
+	.buttonQuestion {
+		width: 70%;
+	}
+}

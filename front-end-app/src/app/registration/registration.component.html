@@ -84,7 +84,7 @@
 						<div class="form_button">
 							<div class="button__row">
 								<div class="button__buttonField">
-									<button type="button" [disabled]="regForm.invalid">Зарегистрироваться</button>
+									<button type="submit" (click)="addUser(regForm.value)" [disabled]="regForm.invalid">Зарегистрироваться</button>
 								</div>
 							</div>
 						</div>
