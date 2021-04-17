@@ -1,0 +1,189 @@
+.box {
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.content {
+	padding: 0px 45px 0px 45px;
+}
+
+.blocks {
+	margin-top: 25px;
+}
+
+.main_body {
+	flex: 1 1 auto;
+}
+
+.main_footer {
+	background-color: #47525E;
+	color: white;
+}
+
+.main_footer-menuAndEmail {
+	padding: 40px 0px 75px 0px;
+}
+
+.main_footer-row {
+	display: flex;
+}
+
+.main_footer_menu-row {
+	display: flex;
+}
+
+.main_footer_menu_refs {
+	margin-left: 60px;
+}
+
+.secondCol {
+	margin-left: 60px;
+}
+
+.button_item {
+	color: white;
+	text-decoration: none;
+}
+
+.button_item:hover {
+	color: white;
+	text-decoration: underline;
+}
+
+.firstCol a {
+	margin-bottom: 10px;
+}
+
+.secondCol a {
+	margin-bottom: 10px;
+}
+
+.main_footer_menu {
+	flex: 0 1 50%;
+}
+
+.main_footer-email {
+	flex: 0 1 50%;
+}
+
+.main_footer_menu_refs nav {
+	display: flex;
+}
+
+.firstCol {
+	display: flex;
+	flex-direction: column;
+}
+
+.secondCol {
+	display: flex;
+	flex-direction: column;
+}
+
+.main_footer-icon img {
+	width: 35px;
+	height: 35px;
+}
+
+.main_footer-email {
+	display: flex;
+}
+
+.main_footer_email-row {
+	margin: auto;
+}
+
+.email_heading {
+	color: white;
+	margin-bottom: 10px;
+}
+
+.form_field {
+	margin-bottom: 10px;
+}
+
+.burger {
+	display: none;
+}
+
+.buttonItem {
+	height: 40px;
+	width: 150px;
+	background-color: #768EA9;
+	border: none;
+	border-radius: 5px;
+	color: white;
+	font-weight: bold;
+	font-size: 15px;
+	letter-spacing: 2px;
+}
+
+.buttonItem:hover {
+	background-color: #84A1C2;
+}
+
+@media (max-width: 768px) {
+	.main_footer-row {
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.main_footer-icon {
+		display: flex;
+		justify-content: center;
+		margin-bottom: 20px;
+	}
+
+	.main_footer_menu_refs {
+		margin-left: 0px;
+		margin-bottom: 20px;
+	}
+
+	.main_footer_menu-row {
+		flex-direction: column;
+	}
+
+	.secondCol {
+		margin-left: 40px;
+	}
+
+	
+}
+
+@media (max-width: 745px) {
+	.blocks_menu nav {
+		flex-direction: column;
+	}
+	.blocks_menu_group {
+		width: 100%;
+		justify-content: space-between;
+	}
+}
+
+@media (max-width: 565px) {
+	.menu_row {
+		flex-direction: column;
+		align-items: center;
+	}
+	.menu-refs {
+		width: 100%;
+		display: flex;
+		justify-content: space-around;
+	}
+	.menu-refs nav {
+		width: 100%;
+		display: flex;
+		justify-content: space-around;
+	}
+	.menu-refs a {
+		margin-left: 0px;
+	}
+}
+
+@media (max-width: 480px) {
+	.content {
+		padding: 0px 20px 0px 20px;
+	}
+}

@@ -1,0 +1,254 @@
+.helloForm {
+	background-color: #47525E;
+	color: white;
+	padding: 25px 0px 70px 0px;
+}
+
+.content {
+	padding: 0px 45px 0px 45px;
+}
+
+.helloForm_heading {
+	font-size: 35px;
+	margin-bottom: 20px;
+}
+
+.helloForm_signUp_row {
+	display: flex;
+}
+
+.signUp_firstInput {
+	width: 179px;
+}
+
+.signUp_secondInput {
+	width: 179px;
+	margin-left: 10px;
+}
+
+.signUp_buttons {
+	margin-left: 10px;
+	width: 220px;
+	display: flex;
+	flex-direction: column;
+}
+
+.signUp_firstButton {
+	margin-bottom: 15px;
+}
+
+.buttonItem {
+	height: 40px;
+	width: 110px;
+	background-color: #768EA9;
+	border: none;
+	border-radius: 5px;
+	color: white;
+	font-weight: bold;
+	font-size: 18px;
+	letter-spacing: 2px;
+}
+
+.buttonItem:hover {
+	background-color: #84A1C2;
+}
+
+.search {
+	padding: 40px 0px 70px 0px;
+}
+
+.search_row {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.search_heading {
+	font-size: 25px;
+	color:  #47525E;
+	margin-bottom: 20px;
+}
+
+.search_form {
+	width: 80%;
+}
+
+.search_form_row {
+	display: flex;
+}
+
+.search_form_input {
+	width: 65%;
+}
+
+.search_input {
+	width: 100%;
+}
+
+.search_form_button {
+	width: 35%;
+	margin-left: 40px;
+	display: flex;
+	justify-content: center;
+}
+
+.search_button {
+	
+}
+
+.topVacancies {
+	padding: 25px 0px 70px 0px;
+	background: url(../../assets/image/working-at-the-office.jpg);
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+
+.topVacancies_row {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.topVacancies_heading {
+	width: 280px;
+	font-size: 40px;
+	color:  white;
+	margin-bottom: 40px;
+	background-color: #47525E;
+	display: flex;
+	justify-content: center;
+	border-radius: 5px;
+	padding: 3px 7px;
+}
+
+.topVacancies_vacancies {
+	width: 100%;
+}
+
+.vacancies_row {
+	display: flex;
+}
+
+.vacancies_column {
+	width: 50%;
+	display: flex;
+	
+}
+
+.vacancies_column_row {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+}
+
+.vacancyItem {
+	width: 230px;
+	margin-bottom: 30px;
+	border: 2px solid #47525E;
+	border-radius: 8px;
+	background-color: white;
+}
+
+.vacancyItem_content {
+	padding: 10px 15px 15px 15px;
+}
+
+.vacancyItem_heading {
+	margin-bottom: 10px;
+	display: flex;
+	justify-content: center;
+}
+
+.vacancyItem_information {
+	border: 2px solid #47525E;
+	border-radius: 8px;
+	height: 100px;
+}
+
+.information_content {
+	padding: 5px;
+}
+
+
+
+@media (max-width: 985px) {
+	.topVacancies {
+		background: none;
+		background-color: #7A8799;
+	}
+
+	
+}
+
+@media (max-width: 600px) {
+	.vacancies_row {
+		flex-direction: column;
+		align-items: center;
+	}
+}
+
+@media (max-width: 340px) {
+	.topVacancies_heading {
+		font-size: 30px;
+		width: 250px;
+	}
+}
+
+@media (max-width: 745px) {
+	.helloForm_signUp_row {
+		flex-direction: column;
+	}
+	.helloForm_heading {
+		font-size: 25px;
+	}
+	.signUp_inputs {
+		display: flex;
+		flex-direction: column;
+	}
+	.signUp_secondInput {
+		margin-left: 0px;
+	}
+	.signUp_inputs {
+		width: 40%;
+	}
+	.inputItem {
+		margin-bottom: 15px;
+	}
+	.signUp_buttons {
+		margin-left: 0px;
+		flex-direction: row;
+	}
+	.signUp_secondButton {
+		margin-left: 10px;
+	}
+}
+
+@media (max-width: 565px) {
+	.signUp_buttons button{
+		font-size: 15px;
+	}
+}
+
+@media (max-width: 465px) {
+	.search_form_row {
+		flex-direction: column;
+	}
+	.search_form_button {
+		margin-left: 0px;
+	}
+	.search_row {
+		align-items: normal;
+	}
+	.search_form_input {
+		width: 170px;
+	}
+	.search_form_button {
+		width: 90px;
+	}
+}
+@media (max-width: 800px) {
+	.helloForm {
+		padding: 65px 0px 70px 0px;
+	}
+}

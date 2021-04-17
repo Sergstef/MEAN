@@ -1,0 +1,177 @@
+.content {
+	padding: 0px 45px 0px 45px;
+}
+
+.main_header {
+	background-color: #47525E;
+}
+
+.button_item {
+	color: white;
+	text-decoration: none;
+}
+
+.button_item:hover {
+	color: white;
+	text-decoration: underline;
+}
+
+.blocks_menu nav a:hover {
+	color: white;
+	text-decoration: underline;
+}
+
+.main_header_menuAndBlocks {
+	padding: 20px 0px 35px 0px;
+}
+
+.menu_row {
+	display: flex;
+	justify-content: space-between;
+}
+
+.menu_burger {
+	display: none;
+}
+
+.menu-refs a {
+	margin-left: 40px;
+}
+
+.menu-refs {
+	position: absolute;
+	top: 20px;
+	right: 60px;
+}
+
+.blocks_menu nav {
+	display: flex;
+	justify-content: space-between;
+}
+
+.blocks_menu_group {
+	display: flex;
+	width: 50%;
+	justify-content: space-around;
+}
+
+.blocks_menu a {
+	font-size: 25px;
+	color: white;
+}
+
+.menu-icon img {
+	width: 75px;
+	height: 75px;
+}
+
+.main_header {
+}
+
+.blocks {
+	margin-top: 25px;
+}
+
+.menu_burger.open-menu span {
+    opacity:0; 
+    transition: 0.5s; 
+}
+.menu_burger.open-menu:before {
+    transform: rotate(38deg);
+    top: 16px;
+    transition: 0.4s;
+}
+.menu_burger.open-menu:after {
+    transform: rotate(-38deg);
+    bottom: 16px;
+    transition: 0.4s;
+}
+ 
+@media (max-width: 800px) {
+	.menu_burger {
+        position: relative; /* задаем относительное позиционирование */
+        width: 40px; /* определяем размеры блока */
+        height: 35px;
+        display: block;
+        cursor: pointer;
+    }
+    .menu_burger span, .menu_burger:after, .menu_burger:before{
+	    height: 3px;
+	    width: 100%;
+	    position: absolute;
+	    background: white;
+	    margin: 0 auto;
+	}
+	.menu_burger span{
+	    top: 16px;
+	}
+	.menu_burger:after, .menu_burger:before{
+	    content: '';
+	}
+	.menu_burger:after{
+	    bottom: 5px;
+	}
+	.menu_burger:before{
+	    top: 5px;
+	}
+	.menu-refs {
+		position: static;
+	}
+	.menu {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		background-color: #47525E;
+		padding: 20px 45px 20px 45px;
+		z-index: 2;
+	}
+	.menu-icon img {
+		width: 55px;
+		height: 55px;
+	}
+	.blocks {
+		position: fixed;
+		left: 0px;
+		width: 100%;
+		height: 100%;
+		flex-direction: column;	
+    	transition: all 0.4s ease;
+    	margin-top: 0px;
+    	padding-top: 120px;
+    	overflow: auto;
+    	background-color:#86C2F3;
+    	top: -100%;
+    	transition: all 0.4s ease;
+    	z-index: 1;
+	}
+	.blocks.open-menu {
+	    top: 0;
+	}
+	.content {
+		padding: 0px;
+		height: 100%;
+	}
+	.main_header_menuAndBlocks {
+		height: 100%;
+	}
+	.menu-refs nav {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.menu-refs nav  a{
+		margin-left: 0px;
+		margin-bottom: 20px;
+		font-size: 35px;
+	}
+	.blocks_menu nav{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.blocks_menu nav  a{
+		font-size: 35px;
+		margin-bottom: 20px;
+	}
+}

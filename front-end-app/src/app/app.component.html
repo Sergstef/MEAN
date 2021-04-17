@@ -1,0 +1,53 @@
+<div class="box">
+	<app-header></app-header>
+	<div class="main_body">
+		<router-outlet></router-outlet>
+	</div>
+	<div class="main_footer">
+		<div class="content">
+			<div class="main_footer-menuAndEmail">
+				<div class="main_footer-row">
+					<div class="main_footer_menu">
+						<div class="main_footer_menu-row">
+							<div class="main_footer-icon">
+								<a routerLink="../home"><img src="../assets/image/study.png" alt=""></a>
+							</div>
+							<div class="main_footer_menu_refs">
+								<nav>
+									<div class="firstCol">
+										<a class="button_item" routerLink="../home">Главная</a>
+										<a class="button_item">О нас</a>
+										<a class="button_item">Ваш профиль</a>
+									</div>
+									<div class="secondCol">
+										<a class="button_item">Контакты</a>
+										<a class="button_item">Поиск</a>
+										<a class="button_item">Советы</a>
+									</div>
+								</nav>
+							</div>
+						</div>
+					</div>
+					<div class="main_footer-email">
+						<div class="main_footer_email-row">
+							<div class="email_heading">Получай вакансии</div>
+							<div class="email_form">
+								<form action="">
+									<div class="email_form-row">
+										<div class="form_field">
+											<input class="inputItem" type="text" placeholder="Email" name="email">
+										</div>
+										<div class="form_button">
+											<button class="buttonItem" type="button">Подписаться</button>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
