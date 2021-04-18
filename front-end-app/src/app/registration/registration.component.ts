@@ -10,8 +10,6 @@ import { Router } from '@angular/router';
 })
 export class RegistrationComponent implements OnInit {
 
-	dataRegister: any={};
-
   constructor(private router: Router,
   			  private authentificationService: AuthentificationService
   			  ) { }
@@ -29,12 +27,12 @@ export class RegistrationComponent implements OnInit {
   	}
 
   	this.authentificationService.registerUser(user).subscribe(data => {
-  		this.dataRegister = data;
-  		if(!this.dataRegister.success) {
-  			console.log(this.dataRegister.msg);
-  			this.router.navigate(['/auth']);
+  		if(!data.success) {
+        console.log('err.message');
+  			console.log(data.msg);
+  			this.router.navigate(['/registration']);
   		} else {
-  			console.log(this.dataRegister.msg);
+  			console.log(data.msg);
   			this.router.navigate(['/auth']);
   		}  		
   	});

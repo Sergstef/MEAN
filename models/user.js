@@ -3,8 +3,8 @@ const bcrypt = require('bcryptjs');
 const config = require('../config/db');
 
 const UserSchema = mongoose.Schema({
-	firstName: {type: String, required: true},
-    lastName: {type: String, required: true},
+	name: {type: String, required: true},
+    surname: {type: String, required: true},
     phoneNumber: {type: String, required: true},
     email: {type: String, required: true}, 
     password: {type: String, required: true}
@@ -21,7 +21,9 @@ module.exports.addUser = function(newUser, callback) {
 	console.log(newUser.password);
 	bcrypt.genSalt(10, (err, salt) => {
 		bcrypt.hash(newUser.password, salt, (err, hash) => {
-			if(err) throw err;
+			if(err){
+				throw err;
+			}
 			newUser.password = hash;
 			newUser.save(callback);
 		});

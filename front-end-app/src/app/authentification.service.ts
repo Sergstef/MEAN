@@ -1,19 +1,21 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Http, Headers } from '@angular/http';
 import { map } from 'rxjs/operators';
-import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthentificationService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: Http) { }
 
-  registerUser(user: any): Observable<any> {
+  registerUser(user: any) {
+  	let headers = new Headers();
+  	headers.append('Content-Type', 'application/json');
   	return this.http.post('http://localhost:3000/account/reg',
-  							 user, 
-  							 );
+  							 user,
+  							 {headers: headers} 
+  							 ).pipe(map((response: any) => response.json()));
   }
 
 }

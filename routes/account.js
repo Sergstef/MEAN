@@ -11,16 +11,18 @@ const config = require('../config/db');
 
 router.post('/reg', (req, res) => {
 	let newUser = new User({
-		firstName: req.body.firstName,
-		lastName: req.body.lastName,
+		name: req.body.name,
+		surname: req.body.surname,
 		phoneNumber: req.body.phoneNumber,
 		email: req.body.email,
-		password: req.body.password,
+		password: req.body.password
 	});
 
 	User.addUser(newUser, (err, user) => {
-		if(err) 
+		if(err){
+			throw err;
 			res.json({success: false, msg: "Пользователь не был добавлен"});
+		} 
 		else
 			res.json({success: true, msg: "Пользователь был добавлен"});
 	});
@@ -41,7 +43,7 @@ router.post('/auth', (req, res) => {
 				});
 
 				res.json({success: true, token: 'JWT' + token, user: {
-					firstName: user._firstName,
+					name: user._name,
 					email: user._email,	
 				}}); 
 			} else {
