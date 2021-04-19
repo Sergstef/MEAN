@@ -1,6 +1,7 @@
 <div class="helloForm">
 	<div class="content">
 		<div class="helloForm_row">
+			<flash-messages></flash-messages>
 			<div class="helloForm_heading">Войти</div>
 			<div class="helloForm_signUp">
 				<form class="signIn_form" name="signInForm" #signInForm = "ngForm">
@@ -10,7 +11,7 @@
 							<input class="signUp_secondInput inputItem" #password="ngModel" type="password" name="password" placeholder="Password" ngModel required>
 						</div>
 						<div class="signUp_buttons">
-							<button class="signUp_firstButton buttonItem" type="submit" (click)="userLoginClick(signInForm.value)" [disabled]="signInForm.invalid">Sign up</button>
+							<button class="signUp_firstButton buttonItem" type="submit" (click)="userLoginClick(signInForm.value)">Sign up</button>
 							<div class="buttonQuestion"><div>Нет аккаунта? Зарегистрируйся!</div></div>
 							<button class="signUp_secondButton buttonItem" type="button" routerLink="../registration">Register</button>
 						</div>

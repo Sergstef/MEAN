@@ -11,8 +11,6 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 })
 export class AuthComponent implements OnInit {
 
-  isEmpty: boolean = false;
-
 
   constructor(private router: Router,
           private authentificationService: AuthentificationService,
@@ -24,25 +22,29 @@ export class AuthComponent implements OnInit {
   }
 
   userLoginClick(formObj: any) {
-    this.isEmpty = false;
     const user = {
       email: formObj.email,
       password: formObj.password
     }
-
-    if(user.password = "") {
+    if(user.password == undefined) {
+      console.log('data.msg');
       this.flashMessages.show("Empty pass", {
+        cssClass: 'alert-danger',
         timeout: 4000
       })
+      return false;
     }
 
     this.authentificationService.authUser(user).subscribe(data => {
       if(!data.success) {
-        console.log(data.msg);
+        this.flashMessages.show(data.msg, {
+          cssClass: 'alert-danger',
+          timeout: 4000
+        });
         this.router.navigate(['/auth']);
       } else {
         console.log('Вы успешно авторизовались');
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['../dashboard']);
         this.authentificationService.storeUser(data.token, data.user);
       }  
     })

@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
+import { FlashMessagesModule } from 'angular2-flash-messages';
+import { IsLoggedIn } from './isLogged.guard';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -29,9 +31,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     AppRoutingModule,
     FormsModule, 
     HttpClientModule,
-    HttpModule
+    HttpModule,
+    FlashMessagesModule.forRoot()
   ],
-  providers: [AuthentificationService],
+  providers: [AuthentificationService, IsLoggedIn],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
