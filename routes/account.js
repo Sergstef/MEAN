@@ -35,7 +35,7 @@ router.post('/auth', (req, res) => {
 		if(err) throw err;
 		if(!user)
 			return res.json({success: false, msg: "Такой пользователь был не найден"});
-		User.comparePass(pwd, user.password, (err, isMatch) => {
+		User.comparePass(password, user.password, (err, isMatch) => {
 			if(err) throw err;
 			if(isMatch) {
 				const token = jwt.sign(user, config.secret, {
@@ -43,8 +43,10 @@ router.post('/auth', (req, res) => {
 				});
 
 				res.json({success: true, token: 'JWT' + token, user: {
-					name: user._name,
-					email: user._email,	
+					name: user.name,
+					surname: user.surname,
+					phoneNumber: user.phoneNumber,
+					email: user.email
 				}}); 
 			} else {
 				return res.json({success: false, msg: "Пароли не совпадают"}); 

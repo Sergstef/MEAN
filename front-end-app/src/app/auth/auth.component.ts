@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from './../User';
+import { AuthentificationService } from '../authentification.service';
+import { Router } from '@angular/router';
+import { FlashMessagesService } from 'angular2-flash-messages';
+
 
 @Component({
   selector: 'app-auth',
@@ -8,16 +11,42 @@ import { User } from './../User';
 })
 export class AuthComponent implements OnInit {
 
+  isEmpty: boolean = false;
 
-  constructor() { 
+
+  constructor(private router: Router,
+          private authentificationService: AuthentificationService,
+          private flashMessages: FlashMessagesService) { 
   	
   }
 
   ngOnInit(): void {
   }
 
-  registerUser() {
-    
+  userLoginClick(formObj: any) {
+    this.isEmpty = false;
+    const user = {
+      email: formObj.email,
+      password: formObj.password
+    }
+
+    if(user.password = "") {
+      this.flashMessages.show("Empty pass", {
+        timeout: 4000
+      })
+    }
+
+    this.authentificationService.authUser(user).subscribe(data => {
+      if(!data.success) {
+        console.log(data.msg);
+        this.router.navigate(['/auth']);
+      } else {
+        console.log('Вы успешно авторизовались');
+        this.router.navigate(['/dashboard']);
+        this.authentificationService.storeUser(data.token, data.user);
+      }  
+    })
+
   }
 
 }
