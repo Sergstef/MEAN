@@ -18,11 +18,7 @@ import { SelectAuthComponent } from './select-auth/select-auth.component';
 import { CompanyRegistrationComponent } from './company-registration/company-registration.component';
 import { CompanyAuthComponent } from './company-auth/company-auth.component';
 import { CompanyDashboardComponent } from './company-dashboard/company-dashboard.component';
-import { ProfileComponent } from './profile/profile.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { UserCvsComponent } from './user-cvs/user-cvs.component';
-import { UserResponsesComponent } from './user-responses/user-responses.component';
-import { UserDocumentsComponent } from './user-documents/user-documents.component';
 import { ProfileMenuComponent } from './modules/profile-menu/profile-menu.component';
 
 @NgModule({
@@ -37,11 +33,7 @@ import { ProfileMenuComponent } from './modules/profile-menu/profile-menu.compon
     CompanyRegistrationComponent,
     CompanyAuthComponent,
     CompanyDashboardComponent,
-    ProfileComponent,
     DashboardComponent,
-    UserCvsComponent,
-    UserResponsesComponent,
-    UserDocumentsComponent,
     ProfileMenuComponent
   ],
   imports: [
