@@ -1,0 +1,83 @@
+.selectAuth {
+	background-color: white;
+	color: #47525E;
+	padding: 25px 0px 70px 0px;
+	height: auto;
+}
+
+.content {
+	padding: 0px 45px 0px 45px;
+}
+
+.selectAuth_row {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.selectAuth_heading {
+	font-size: 35px;
+	margin-bottom: 20px;
+}
+
+.selectAuth_subheading {
+	color: #47525E;
+	font-size: 25px;
+	margin-bottom: 50px;
+}
+
+.selectAuth_buttons {
+	width: 100%;
+}
+
+.buttons_row {
+	display: flex;
+	justify-content: space-around;
+}
+
+.selectAuth_button {
+	height: 60px;
+	width: 190px;
+	background-color: #768EA9;
+	border: none;
+	border-radius: 5px;
+	color: white;
+	font-weight: bold;
+	font-size: 22px;
+	letter-spacing: 2px;
+}
+
+@media (max-width: 900px) {
+	.selectAuth_subheading {
+		margin-bottom: 30px;
+	}
+
+	.firstButton {
+		margin-right: 15px;
+	}
+
+	
+}
+@media (max-width: 800px) {
+	.selectAuth {
+		padding: 55px 0px 70px 0px;
+	}
+
+	
+}
+
+@media (max-width: 450px) {
+	.buttons_row {
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	.firstButton {
+		margin-right: 0px;
+		margin-bottom: 20px;
+	}
+	
+}
+
+

@@ -15,6 +15,8 @@ import { RegistrationComponent } from './registration/registration.component';
 import { ConfirmEqualValidatorDirective } from './registration/confirm-equal-validator.directive';
 import { AuthentificationService } from './authentification.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { SelectAuthComponent } from './select-auth/select-auth.component';
+import { CompanyRegistrationComponent } from './company-registration/company-registration.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     HeaderComponent,
     ConfirmEqualValidatorDirective,
     RegistrationComponent,
-    DashboardComponent
+    DashboardComponent,
+    SelectAuthComponent,
+    CompanyRegistrationComponent
   ],
   imports: [
     BrowserModule,

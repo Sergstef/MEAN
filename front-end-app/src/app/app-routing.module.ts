@@ -5,6 +5,8 @@ import { HomeComponent } from './home/home.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { IsLoggedIn } from './isLogged.guard';
+import { SelectAuthComponent } from './select-auth/select-auth.component';
+import { CompanyRegistrationComponent } from './company-registration/company-registration.component';
 
 
 const routes: Routes = [
@@ -12,7 +14,9 @@ const routes: Routes = [
 	{path: 'auth', component: AuthComponent},
 	{path: 'registration', component: RegistrationComponent},
 	{path: 'home', component: HomeComponent},
-	{path: 'dashboard', component: DashboardComponent, canActivate: [IsLoggedIn]}
+	{path: 'dashboard', component: DashboardComponent, canActivate: [IsLoggedIn]},
+	{path: 'select-auth', component: SelectAuthComponent},
+	{path: 'company-registration', component: CompanyRegistrationComponent}
 ];
 
 @NgModule({
