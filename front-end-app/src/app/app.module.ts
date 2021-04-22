@@ -19,8 +19,11 @@ import { CompanyRegistrationComponent } from './company-registration/company-reg
 import { CompanyAuthComponent } from './company-auth/company-auth.component';
 import { CompanyDashboardComponent } from './company-dashboard/company-dashboard.component';
 import { ProfileComponent } from './profile/profile.component';
-import { ProfileMenuComponent } from './profile-menu/profile-menu.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { UserCvsComponent } from './user-cvs/user-cvs.component';
+import { UserResponsesComponent } from './user-responses/user-responses.component';
+import { UserDocumentsComponent } from './user-documents/user-documents.component';
+import { ProfileMenuComponent } from './modules/profile-menu/profile-menu.component';
 
 @NgModule({
   declarations: [
@@ -35,8 +38,11 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     CompanyAuthComponent,
     CompanyDashboardComponent,
     ProfileComponent,
-    ProfileMenuComponent,
-    DashboardComponent
+    DashboardComponent,
+    UserCvsComponent,
+    UserResponsesComponent,
+    UserDocumentsComponent,
+    ProfileMenuComponent
   ],
   imports: [
     BrowserModule,
