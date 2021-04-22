@@ -92,8 +92,17 @@
 	justify-content: center;
 }
 
-.search_button {
-	
+.helloForm_signUp {
+	margin-bottom: 20px;
+}
+
+.helloForm_forCompanies a{
+	font-size: 20px;
+	color: white;
+}
+
+.helloForm_forCompanies a:hover {
+	text-decoration: underline;
 }
 
 .topVacancies {

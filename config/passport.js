@@ -1,5 +1,6 @@
 const config = require('./db');
 const User = require('../models/user');
+const Company = require('../models/company');
 
 
 var JwtStrategy = require('passport-jwt').Strategy,
@@ -17,6 +18,25 @@ module.exports = function(passport) {
 	        }
 	        if (user) {
 	            return done(null, user);
+	        } else {
+	            return done(null, false);
+	            // or you could create a new account
+	        }
+	    });
+	}));
+}
+
+module.exports = function(passport) {
+	var opts = {}
+	opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
+	opts.secretOrKey = config.secret;
+	passport.use(new JwtStrategy(opts, function(jwt_payload, done) {
+	    Company.findOne({id: jwt_payload.sub}, function(err, company) {
+	        if (err) {
+	            return done(err, false);
+	        }
+	        if (company) {
+	            return done(null, company);
 	        } else {
 	            return done(null, false);
 	            // or you could create a new account

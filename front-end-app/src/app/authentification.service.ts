@@ -11,6 +11,7 @@ export class AuthentificationService {
 
   token: any; 
   user: any;
+  company: any;
 
   constructor(private http: Http) { }
 
@@ -23,11 +24,29 @@ export class AuthentificationService {
   							 ).pipe(map((response: any) => response.json()));
   }
 
+  registerCompany(company: any) {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:3000/account/regCompany',
+                 company,
+                 {headers: headers} 
+                 ).pipe(map((response: any) => response.json()));
+  }
+
   authUser(user: any) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     return this.http.post('http://localhost:3000/account/auth',
                  user,
+                 {headers: headers} 
+                 ).pipe(map((response: any) => response.json()));
+  }
+
+  authCompany(company: any) {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:3000/account/authCompany',
+                 company,
                  {headers: headers} 
                  ).pipe(map((response: any) => response.json()));
   }
@@ -39,9 +58,22 @@ export class AuthentificationService {
     this.user = user;
   }
 
+  storeCompany(token: any, company: any) {
+    localStorage.setItem('token', token);
+    localStorage.setItem('user', JSON.stringify(company));
+    this.token = token;
+    this.company = company;
+  }
+
   logout() {
     this.token = null;
     this.user = null;
+    localStorage.clear();
+  }
+
+  logoutCompany() {
+    this.token = null;
+    this.company = null;
     localStorage.clear();
   }
 

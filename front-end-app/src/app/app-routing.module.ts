@@ -7,7 +7,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { IsLoggedIn } from './isLogged.guard';
 import { SelectAuthComponent } from './select-auth/select-auth.component';
 import { CompanyRegistrationComponent } from './company-registration/company-registration.component';
-
+import { CompanyAuthComponent } from './company-auth/company-auth.component';
+import { CompanyDashboardComponent } from './company-dashboard/company-dashboard.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
 	{path: '', component: HomeComponent},
@@ -16,7 +18,10 @@ const routes: Routes = [
 	{path: 'home', component: HomeComponent},
 	{path: 'dashboard', component: DashboardComponent, canActivate: [IsLoggedIn]},
 	{path: 'select-auth', component: SelectAuthComponent},
-	{path: 'company-registration', component: CompanyRegistrationComponent}
+	{path: 'company-registration', component: CompanyRegistrationComponent},
+	{path: 'company-auth', component: CompanyAuthComponent},
+	{path: 'company-dashboard', component: CompanyDashboardComponent, canActivate: [IsLoggedIn]},
+	{path: 'profile', component: ProfileComponent}
 ];
 
 @NgModule({

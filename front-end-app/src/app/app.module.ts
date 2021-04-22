@@ -14,9 +14,12 @@ import { HeaderComponent } from './header/header.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { ConfirmEqualValidatorDirective } from './registration/confirm-equal-validator.directive';
 import { AuthentificationService } from './authentification.service';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { SelectAuthComponent } from './select-auth/select-auth.component';
 import { CompanyRegistrationComponent } from './company-registration/company-registration.component';
+import { CompanyAuthComponent } from './company-auth/company-auth.component';
+import { CompanyDashboardComponent } from './company-dashboard/company-dashboard.component';
+import { ProfileComponent } from './profile/profile.component';
+import { ProfileMenuComponent } from './profile-menu/profile-menu.component';
 
 @NgModule({
   declarations: [
@@ -26,9 +29,12 @@ import { CompanyRegistrationComponent } from './company-registration/company-reg
     HeaderComponent,
     ConfirmEqualValidatorDirective,
     RegistrationComponent,
-    DashboardComponent,
     SelectAuthComponent,
-    CompanyRegistrationComponent
+    CompanyRegistrationComponent,
+    CompanyAuthComponent,
+    CompanyDashboardComponent,
+    ProfileComponent,
+    ProfileMenuComponent
   ],
   imports: [
     BrowserModule,

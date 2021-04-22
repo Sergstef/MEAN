@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthentificationService } from '../authentification.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-company-registration',
@@ -7,9 +9,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompanyRegistrationComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router,
+  			  private authentificationService: AuthentificationService
+  			  ) { }
 
   ngOnInit(): void {
+  }
+
+  addUser(formObj: any) {
+  	const company = {
+  		name: formObj.name,
+  		adress: formObj.adress,
+  		phoneNumber: formObj.phoneNumber,
+  		email: formObj.email,
+  		password: formObj.password
+  	}
+
+    this.authentificationService.registerCompany(company).subscribe(data => {
+      if(!data.success) {
+        console.log('err.message');
+        console.log(data.msg);
+        this.router.navigate(['../company-registration']);
+      } else {
+        console.log(data.msg);
+        this.router.navigate(['../company-auth']);
+      }      
+    });
+
+  	
   }
 
 }

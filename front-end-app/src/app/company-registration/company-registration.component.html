@@ -2,7 +2,7 @@
 	<div class="registration_box">
 		<div class="reg_row">
 			<div class="reg_heading">Регистрация</div>
-			<div class="reg_subheading"><span>Зарегистрируйся, чтобы создать свое первое резюме</span></div>
+			<div class="reg_subheading"><span>Зарегистрируйся, чтобы найти лучшего кандидата</span></div>
 			<div class="reg_body">
 				<form class="reg_form" name="mainForm" #regForm = "ngForm">
 					<div class="form_row">
@@ -11,21 +11,21 @@
 								<div class="form_column1 column">
 									<div class="reg_error_row">
 										<div class="reg__name">
-											<input #name="ngModel" class="inputSome" type="text" placeholder="Имя" name="name" ngModel required>
+											<input #name="ngModel" class="inputSome" type="text" placeholder="Название компании" name="name" ngModel required>
 										</div>
 										<div class="error" *ngIf="name.dirty || name.touched">
 											<div *ngIf = "name.errors?.required">
-										        Поле с именем не должно быть пустым
+										        Поле с названием не должно быть пустым
 										    </div>	
 										</div>
 									</div>
 									<div class="reg_error_row">
 										<div class="reg__surname">
-											<input #surname="ngModel" class="inputSome" type="text" placeholder="Фамилия" name="surname" ngModel required>
+											<input #adress="ngModel" class="inputSome" type="text" placeholder="Местонахождение" name="adress" ngModel required>
 										</div>
-										<div class="error" *ngIf="surname.dirty || surname.touched">
-											<div *ngIf = "surname.errors?.required">
-										        Поле с фамилией не должно быть пустым
+										<div class="error" *ngIf="adress.dirty || adress.touched">
+											<div *ngIf = "adress.errors?.required">
+										        Поле с местонахождением не должно быть пустым
 										    </div>	
 										</div>
 									</div>
