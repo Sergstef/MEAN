@@ -20,6 +20,7 @@ import { CompanyAuthComponent } from './company-auth/company-auth.component';
 import { CompanyDashboardComponent } from './company-dashboard/company-dashboard.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProfileMenuComponent } from './profile-menu/profile-menu.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ProfileMenuComponent } from './profile-menu/profile-menu.component';
     CompanyAuthComponent,
     CompanyDashboardComponent,
     ProfileComponent,
-    ProfileMenuComponent
+    ProfileMenuComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

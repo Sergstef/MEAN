@@ -1,5 +1,56 @@
-<div class="jumbotron">
-	<h1>Кабинет пльзователя</h1>
-	<br>
-	<button class="btn btn-warning" (click)="logoutUser()">Exit</button>
+<div class="profile">
+	<div class="content">
+		<div class="profile_row">
+			<div class="profile_header">
+				<div class="header_row">
+					<div class="header_heading">
+						Ваш профиль
+					</div>
+					<div class="header_createCV">
+						<button class="header_button" type="button" routerLink="">Создать резюме</button>
+					</div>
+				</div>
+			</div>
+			<div class="profile_body">
+				<div class="body_row">
+					<div class="body_content">
+						<router-outlet></router-outlet>
+					</div>
+					<div class="body_menu">
+						<div class="menu_content">
+							<div class="menu_row">
+								<div class="menu_heading">
+									Меню
+								</div>
+								<div class="menu_options">
+									<div class="options_row">
+										<div class="options_item">
+											<a routerLink="">Персональная информация</a>
+										</div>
+										<div class="options_item">
+											<a routerLink="">Мои резюме</a>
+										</div>
+										<div class="options_item">
+											<a routerLink="">Отклики</a>
+										</div>
+										<div class="options_item">
+											<a routerLink="">Мои документы</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="profile_footer">
+				<div class="footer_row">
+					<div class="footer_logoutButton">
+						<button type="button" (click)="logoutUser()">Выйти</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
+
