@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthentificationService } from '../../../authentification.service';
+import { AuthentificationService } from '../authentification.service';
 import { Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
 
@@ -10,17 +10,9 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor(private router: Router,
-          private authentificationService: AuthentificationService,
-          private flashMessages: FlashMessagesService) { }
+  constructor() { }
 
   ngOnInit(): void {
-  }
-
-  logoutUser() {
-  	this.authentificationService.logout();
-  	this.router.navigate(['../auth']);
-  	return false;
   }
 
 }

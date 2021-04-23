@@ -19,7 +19,10 @@ import { CompanyRegistrationComponent } from './company-registration/company-reg
 import { CompanyAuthComponent } from './company-auth/company-auth.component';
 import { CompanyDashboardComponent } from './company-dashboard/company-dashboard.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { ProfileMenuComponent } from './modules/profile-menu/profile-menu.component';
+import { ProfileComponent } from './profile/profile.component';
+import { UserCvsComponent } from './user-cvs/user-cvs.component';
+import { UserDocumentsComponent } from './user-documents/user-documents.component';
+import { UserResponsesComponent } from './user-responses/user-responses.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,10 @@ import { ProfileMenuComponent } from './modules/profile-menu/profile-menu.compon
     CompanyAuthComponent,
     CompanyDashboardComponent,
     DashboardComponent,
-    ProfileMenuComponent
+    ProfileComponent,
+    UserCvsComponent,
+    UserDocumentsComponent,
+    UserResponsesComponent
   ],
   imports: [
     BrowserModule,

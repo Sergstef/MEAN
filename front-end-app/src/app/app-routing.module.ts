@@ -9,19 +9,28 @@ import { SelectAuthComponent } from './select-auth/select-auth.component';
 import { CompanyRegistrationComponent } from './company-registration/company-registration.component';
 import { CompanyAuthComponent } from './company-auth/company-auth.component';
 import { CompanyDashboardComponent } from './company-dashboard/company-dashboard.component';
-import { ProfileMenuComponent } from './modules/profile-menu/profile-menu.component';
+import { ProfileComponent } from './profile/profile.component';
+import { UserCvsComponent } from './user-cvs/user-cvs.component';
+import { UserDocumentsComponent } from './user-documents/user-documents.component';
+import { UserResponsesComponent } from './user-responses/user-responses.component';
 
 const routes: Routes = [
 	{path: '', component: HomeComponent},
 	{path: 'auth', component: AuthComponent},
 	{path: 'registration', component: RegistrationComponent},
 	{path: 'home', component: HomeComponent},
-	{path: 'dashboard', component: DashboardComponent, canActivate: [IsLoggedIn]},
+	{path: 'dashboard', component: DashboardComponent, canActivate: [IsLoggedIn],
+		children: [
+			{path: 'profile', component: ProfileComponent},
+			{path: 'user-cvs', component: UserCvsComponent},
+			{path: 'user-documents', component: UserDocumentsComponent},
+			{path: 'user-responses', component: UserResponsesComponent},
+			{path: '', redirectTo: 'profile', pathMatch: 'full'}
+		]},
 	{path: 'select-auth', component: SelectAuthComponent},
 	{path: 'company-registration', component: CompanyRegistrationComponent},
 	{path: 'company-auth', component: CompanyAuthComponent},
-	{path: 'company-dashboard', component: CompanyDashboardComponent, canActivate: [IsLoggedIn]},
-	{path: 'modules/profile-menu', component: ProfileMenuComponent}
+	{path: 'company-dashboard', component: CompanyDashboardComponent, canActivate: [IsLoggedIn]}
 ];
 
 @NgModule({

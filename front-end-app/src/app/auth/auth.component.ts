@@ -44,7 +44,7 @@ export class AuthComponent implements OnInit {
         this.router.navigate(['/auth']);
       } else {
         console.log('Вы успешно авторизовались');
-        this.router.navigate(['../modules/profile-menu']);
+        this.router.navigate(['/dashboard']);
         this.authentificationService.storeUser(data.token, data.user);
       }  
     })
