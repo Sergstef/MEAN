@@ -4,6 +4,7 @@ import { map } from 'rxjs/operators';
 import { tokenNotExpired } from 'angular2-jwt';
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -60,7 +61,7 @@ export class AuthentificationService {
 
   storeCompany(token: any, company: any) {
     localStorage.setItem('token', token);
-    localStorage.setItem('user', JSON.stringify(company));
+    localStorage.setItem('company', JSON.stringify(company));
     this.token = token;
     this.company = company;
   }
@@ -79,6 +80,10 @@ export class AuthentificationService {
 
   isLoggedIn() {
     return tokenNotExpired();
+  }
+
+  getUser() {
+    return localStorage.getItem('user');
   }
 
 }

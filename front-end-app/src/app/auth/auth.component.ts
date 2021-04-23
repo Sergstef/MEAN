@@ -11,6 +11,8 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 })
 export class AuthComponent implements OnInit {
 
+  user: any;
+
 
   constructor(private router: Router,
           private authentificationService: AuthentificationService,
@@ -46,7 +48,8 @@ export class AuthComponent implements OnInit {
         console.log('Вы успешно авторизовались');
         this.router.navigate(['/dashboard']);
         this.authentificationService.storeUser(data.token, data.user);
-      }  
+      }
+
     })
 
   }

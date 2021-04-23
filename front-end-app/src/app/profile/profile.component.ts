@@ -3,6 +3,7 @@ import { AuthentificationService } from '../authentification.service';
 import { Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
 
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -10,7 +11,12 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  user: any;
+
+  constructor(private authentificationService: AuthentificationService) { 
+  	this.user = authentificationService.getUser();
+  	console.log(Object.keys(this.user));
+  }
 
   ngOnInit(): void {
   }
