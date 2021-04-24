@@ -13,6 +13,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { UserCvsComponent } from './user-cvs/user-cvs.component';
 import { UserDocumentsComponent } from './user-documents/user-documents.component';
 import { UserResponsesComponent } from './user-responses/user-responses.component';
+import { CVcreationComponent } from './cvcreation/cvcreation.component';
 
 const routes: Routes = [
 	{path: '', component: HomeComponent},
@@ -30,7 +31,8 @@ const routes: Routes = [
 	{path: 'select-auth', component: SelectAuthComponent},
 	{path: 'company-registration', component: CompanyRegistrationComponent},
 	{path: 'company-auth', component: CompanyAuthComponent},
-	{path: 'company-dashboard', component: CompanyDashboardComponent, canActivate: [IsLoggedIn]}
+	{path: 'company-dashboard', component: CompanyDashboardComponent, canActivate: [IsLoggedIn]},
+	{path: 'cvcreation', component: CVcreationComponent}
 ];
 
 @NgModule({

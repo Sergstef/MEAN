@@ -1,8 +1,20 @@
 <div class="profileFields">
 	<div class="profileFields_row">
-		<div class="profileFields_name">
-			<label for="name">{{user}}</label>
+		<div class="profileFields_name flexContainer">
+			<label class="labelName" for="name">Имя</label>
 			<input type="text" name="name" value="{{user.name}}" disabled>
+		</div>
+		<div class="profileFields_surname flexContainer">
+			<label class="labelName" for="surname">Фамилия</label>
+			<input type="text" name="surname" value="{{user.surname}}" disabled>
+		</div>
+		<div class="profileFields_phoneNumber flexContainer">
+			<label class="labelName" for="phoneNumber">Номер телефона</label>
+			<input type="text" name="phoneNumber" value="{{user.phoneNumber}}" disabled>
+		</div>
+		<div class="profileFields_email flexContainer">
+			<label class="labelName" for="email">Email</label>
+			<input type="text" name="email" value="{{user.email}}" disabled>
 		</div>
 	</div>
 </div>

@@ -1,0 +1,59 @@
+<div class="cv">
+	<div class="cv_box">
+		<div class="cv_row">
+			<div class="cv_heading">Создание резюие</div>
+			<div class="cv_form">
+				<form action="">
+					<div class="form_row">
+						<div class="form_fields">
+							<div class="fields_row">
+								<div class="reg_error_row">
+									<div class="reg_label">
+										<label for="name">Имя</label>
+									</div>
+									<div class="reg__name">
+										<input #name="ngModel" class="inputSome" type="text" name="name" ngModel disabled>
+									</div>
+								</div>
+								<div class="reg_error_row">
+									<div class="reg_label">
+										<label for="surname">Фамилия</label>
+									</div>
+									<div class="reg__surname">
+										<input #name="ngModel" class="inputSome" type="text" name="surname" ngModel disabled>
+									</div>
+								</div>
+								<div class="reg_error_row">
+									<div class="reg_label">
+										<label for="email">Email</label>
+									</div>
+									<div class="reg__email">
+										<input #name="ngModel" class="inputSome" type="text" name="email" ngModel disabled>
+									</div>
+								</div>
+								<div class="reg_error_row">
+									<div class="reg_label">
+										<label for="phoneNumber">Номер телефона</label>
+									</div>
+									<div class="reg__phoneNumber">
+										<input #name="ngModel" class="inputSome" type="text" name="phoneNumber" ngModel disabled>
+									</div>
+								</div>
+								<div class="reg_error_row">
+									<div class="reg__name">
+										<input #name="ngModel" class="inputSome" type="text" placeholder="Название компании" name="name" ngModel required>
+									</div>
+									<div class="error" *ngIf="name.dirty || name.touched">
+										<div *ngIf = "name.errors?.required">
+										        Поле с названием не должно быть пустым
+										</div>	
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
