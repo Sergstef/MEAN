@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthentificationService } from '../authentification.service';
+import { Router } from '@angular/router';
+import { FlashMessagesService } from 'angular2-flash-messages';
+
 
 @Component({
   selector: 'app-cvcreation',
@@ -7,7 +11,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CVcreationComponent implements OnInit {
 
-  constructor() { }
+  user: any;
+
+  constructor(private authentificationService: AuthentificationService) { 
+  	this.user = authentificationService.getUser();
+  	this.user = JSON.parse(this.user);
+  }
 
   ngOnInit(): void {
   }
