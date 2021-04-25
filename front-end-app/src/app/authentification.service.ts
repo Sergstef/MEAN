@@ -43,6 +43,15 @@ export class AuthentificationService {
                  ).pipe(map((response: any) => response.json()));
   }
 
+  addCV(arr: any) {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:3000/account/addCV',
+                 arr,
+                 {headers: headers} 
+                 ).pipe(map((response: any) => response.json()));
+  }
+
   authUser(user: any) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');

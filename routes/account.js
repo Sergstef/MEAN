@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
 const Company = require('../models/company');
+const CV = require('../models/CV');
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
 const config = require('../config/db');
@@ -16,7 +17,8 @@ router.post('/reg', (req, res) => {
 		surname: req.body.surname,
 		phoneNumber: req.body.phoneNumber,
 		email: req.body.email,
-		password: req.body.password
+		password: req.body.password,
+		cvs: []
 	});
 
 	User.addUser(newUser, (err, user) => {
@@ -48,6 +50,41 @@ router.post('/regCompany', (req, res) => {
 	});
 });
 
+router.post('/addCV', (req, res) => {
+	let newCV = new CV({
+		name: req.body.CV.name,
+		surname: req.body.CV.surname,
+		email: req.body.CV.email,
+		phoneNumber: req.body.CV.phoneNumber,
+		age: req.body.CV.age,
+		city: req.body.CV.city,
+		position: req.body.CV.position,
+		salary: req.body.CV.salary,
+		occupation: req.body.CV.occupation,
+		education: req.body.CV.education,
+		educationPlace: req.body.CV.educationPlace,
+		faculty: req.body.CV.faculty,
+		speciality: req.body.CV.speciality,
+		aboutYou: req.body.CV.aboutYou
+	});
+
+	let newUser = new User({
+		name: req.body.user.name,
+		surname: req.body.user.surname,
+		phoneNumber: req.body.user.phoneNumber,
+		email: req.body.user.email
+	});
+
+	User.addCVToUser(newUser.email, newCV, (err, user) => {
+		if(err){
+			throw err;
+			res.json({success: false, msg: "Резюме не было добавлен пользователю"});
+		} 
+		else
+			res.json({success: true, msg: "Резюме было добавлен пользователю"});
+	});
+});
+
 router.post('/regCV', (req, res) => {
 	let newCV = new CV({
 		name: req.body.CV.name,
@@ -70,8 +107,7 @@ router.post('/regCV', (req, res) => {
 		name: req.body.user.name,
 		surname: req.body.user.surname,
 		phoneNumber: req.body.user.phoneNumber,
-		email: req.body.user.email,
-		password: req.body.user.password
+		email: req.body.user.email
 	});
 
 	CV.addCV(newCV, (err, user) => {
@@ -102,7 +138,8 @@ router.post('/auth', (req, res) => {
 					name: user.name,
 					surname: user.surname,
 					phoneNumber: user.phoneNumber,
-					email: user.email
+					email: user.email,
+					cvs: user.cvs
 				}}); 
 			} else {
 				return res.json({success: false, msg: "Пароли не совпадают"}); 

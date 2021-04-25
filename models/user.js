@@ -7,7 +7,8 @@ const UserSchema = mongoose.Schema({
     surname: {type: String, required: true},
     phoneNumber: {type: String, required: true},
     email: {type: String, required: true}, 
-    password: {type: String, required: true}
+    password: {type: String, required: true},
+    cvs: {type: Array, required: true}
 });
 
 const User = module.exports = mongoose.model('User', UserSchema);
@@ -15,6 +16,16 @@ const User = module.exports = mongoose.model('User', UserSchema);
 module.exports.getUserByEmail = function(email, callback) {
 	const query = {email: email};
 	User.findOne(query, callback);
+};
+
+module.exports.addCVToUser = function(email, CV, callback) {
+	const query = {email: email};
+	User.update(query,
+	 {
+	 	$push: {
+	 		cvs: CV
+	 	}
+	 }, callback)
 };
 
 module.exports.addUser = function(newUser, callback) {

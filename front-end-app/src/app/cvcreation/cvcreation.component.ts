@@ -44,6 +44,15 @@ export class CVcreationComponent implements OnInit {
   		user: this.user
   	}
 
+    this.authentificationService.addCV(CVUserArr).subscribe(data => {
+      if(!data.success) {
+        console.log(data.msg);
+        this.router.navigate(['/dashboard/profile']);
+      } else {
+        console.log(data.msg);
+      }  
+    });
+
   	this.authentificationService.registerCV(CVUserArr).subscribe(data => {
   		if(!data.success) {
         console.log('err.message');
