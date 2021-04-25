@@ -10,9 +10,12 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 })
 export class UserCvsComponent implements OnInit {
 
-  constructor(private router: Router,
-          private authentificationService: AuthentificationService,
-          private flashMessages: FlashMessagesService) { }
+  user: any;
+
+  constructor(private authentificationService: AuthentificationService) { 
+  	this.user = authentificationService.getUser();
+  	this.user = JSON.parse(this.user);
+  }
 
   ngOnInit(): void {
   }

@@ -148,6 +148,23 @@ router.post('/auth', (req, res) => {
 	})
 });
 
+router.post('/updateUser', (req, res) => {
+	const email = req.body.email;
+	User.getUserByEmail(email, (err, user) => {
+				const token = jwt.sign(user.toJSON(), config.secret, {
+					expiresIn: 3600 * 24 
+				});
+
+				res.json({success: true, token: 'JWT' + token, user: {
+					name: user.name,
+					surname: user.surname,
+					phoneNumber: user.phoneNumber,
+					email: user.email,
+					cvs: user.cvs
+				}});
+		});
+});
+
 router.post('/authCompany', (req, res) => {
 	const email = req.body.email;
 	const password = req.body.password;

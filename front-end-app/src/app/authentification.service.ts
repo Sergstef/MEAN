@@ -61,6 +61,15 @@ export class AuthentificationService {
                  ).pipe(map((response: any) => response.json()));
   }
 
+  updateUser(user: any) {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:3000/account/updateUser',
+                 user,
+                 {headers: headers} 
+                 ).pipe(map((response: any) => response.json()));
+  }
+
   authCompany(company: any) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');

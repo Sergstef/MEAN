@@ -60,9 +60,20 @@ export class CVcreationComponent implements OnInit {
   			this.router.navigate(['/dashboard/profile']);
   		} else {
   			console.log(data.msg);
-  			this.router.navigate(['/dashboard/user-cvs']);
   		}  		
   	});
+
+    this.authentificationService.updateUser(this.user).subscribe(data => {
+      if(!data.success) {
+        console.log(data.msg);
+        this.router.navigate(['/dashboard/profile']);
+      } else {
+        this.authentificationService.logout();
+        console.log('Вы успешно обновили поль');
+        this.router.navigate(['/dashboard/user-cvs']);
+        this.authentificationService.storeUser(data.token, data.user);
+      }  
+    });
   }
 
 }
