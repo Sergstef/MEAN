@@ -48,6 +48,42 @@ router.post('/regCompany', (req, res) => {
 	});
 });
 
+router.post('/regCV', (req, res) => {
+	let newCV = new CV({
+		name: req.body.CV.name,
+		surname: req.body.CV.surname,
+		email: req.body.CV.email,
+		phoneNumber: req.body.CV.phoneNumber,
+		age: req.body.CV.age,
+		city: req.body.CV.city,
+		position: req.body.CV.position,
+		salary: req.body.CV.salary,
+		occupation: req.body.CV.occupation,
+		education: req.body.CV.education,
+		educationPlace: req.body.CV.educationPlace,
+		faculty: req.body.CV.faculty,
+		speciality: req.body.CV.speciality,
+		aboutYou: req.body.CV.aboutYou
+	});
+
+	let newUser = new User({
+		name: req.body.user.name,
+		surname: req.body.user.surname,
+		phoneNumber: req.body.user.phoneNumber,
+		email: req.body.user.email,
+		password: req.body.user.password
+	});
+
+	CV.addCV(newCV, (err, user) => {
+		if(err){
+			throw err;
+			res.json({success: false, msg: "Резюме не было добавлен"});
+		} 
+		else
+			res.json({success: true, msg: "Резюме было добавлен"});
+	});
+});
+
 router.post('/auth', (req, res) => {
 	const email = req.body.email;
 	const password = req.body.password;

@@ -3,7 +3,7 @@
 		<div class="cv_row">
 			<div class="cv_heading">Создание резюме</div>
 			<div class="cv_form">
-				<form action="">
+				<form name="mainForm" #CVForm = "ngForm">
 					<div class="form_row">
 						<div class="form_fields">
 							<div class="fields_row">
@@ -14,11 +14,11 @@
 									<div class="cv__input">
 										<input #name="ngModel" class="inputSome" type="text" name="name" ngModel required>
 									</div>
-									<div class="error" *ngIf="name.dirty || name.touched">
-										<div *ngIf = "name.errors?.required">
-										        Поле с именем не должно быть пустым
-										</div>	
-									</div>
+								</div>
+								<div class="error" *ngIf="name.dirty || name.touched">
+									<div *ngIf = "name.errors?.required">
+										Поле с именем не должно быть пустым
+									</div>	
 								</div>
 								<div class="cv_error_row">
 									<div class="cv_label">
@@ -27,11 +27,11 @@
 									<div class="cv__input">
 										<input #surname="ngModel" class="inputSome" type="text" name="surname" ngModel required>
 									</div>
-									<div class="error" *ngIf="surname.dirty || surname.touched">
-										<div *ngIf = "surname.errors?.required">
+								</div>
+								<div class="error" *ngIf="surname.dirty || surname.touched">
+									<div *ngIf = "surname.errors?.required">
 										        Поле с фамилией не должно быть пустым
-										</div>	
-									</div>
+									</div>	
 								</div>
 								<div class="cv_error_row">
 									<div class="cv_label">
@@ -40,13 +40,13 @@
 									<div class="cv__input">
 										<input #email="ngModel" class="inputSome" type="text" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" ngModel required>
 									</div>
-									<div class="error" *ngIf="email.dirty || email.touched">
-										<div *ngIf = "email.errors?.required">
+								</div>
+								<div class="error" *ngIf="email.dirty || email.touched">
+									<div *ngIf = "email.errors?.required">
 										        Поле с почтой не должно быть пустым
-										</div>	
-										<div *ngIf = "email.errors?.pattern && email.touched">
+									</div>	
+									<div *ngIf = "email.errors?.pattern && email.touched">
 										        Неправильный ввод
-										</div>
 									</div>
 								</div>
 								<div class="cv_error_row">
@@ -56,14 +56,14 @@
 									<div class="cv__input">
 										<input #phoneNumber="ngModel" class="inputSome" type="text" pattern="\+7\s?[\(]{0,1}9[0-9]{2}[\)]{0,1}\s?\d{3}[-]{0,1}\d{2}[-]{0,1}\d{2}" name="phoneNumber" ngModel required>
 									</div>
-									<div class="error" *ngIf="phoneNumber.dirty || phoneNumber.touched">
-										<div *ngIf = "phoneNumber.errors?.required">
+								</div>
+								<div class="error" *ngIf="phoneNumber.dirty || phoneNumber.touched">
+									<div *ngIf = "phoneNumber.errors?.required">
 										        Поле с номером телефона не должно быть пустым
-										</div>
-										<div *ngIf = "phoneNumber.errors?.pattern && phoneNumber.touched">
-										        Неправильный ввод. Пример: +79999999999
-										    </div>	
 									</div>
+									<div *ngIf = "phoneNumber.errors?.pattern && phoneNumber.touched">
+										        Неправильный ввод. Пример: +79999999999
+									</div>	
 								</div>
 								<div class="cv_error_row">
 									<div class="cv_label">
@@ -72,11 +72,11 @@
 									<div class="cv__input">
 										<input #age="ngModel" class="inputSome" type="text" placeholder="Полных лет" name="age" ngModel required>
 									</div>
-									<div class="error" *ngIf="age.dirty || age.touched">
-										<div *ngIf = "age.errors?.required">
+								</div>
+								<div class="error" *ngIf="age.dirty || age.touched">
+									<div *ngIf = "age.errors?.required">
 										        Поле с возрастом не должно быть пустым
-										</div>	
-									</div>
+									</div>	
 								</div>
 								<div class="cv_error_row">
 									<div class="cv_label">
@@ -85,11 +85,11 @@
 									<div class="cv__input">
 										<input #city="ngModel" class="inputSome" type="text" name="city" ngModel required>
 									</div>
-									<div class="error" *ngIf="city.dirty || city.touched">
-										<div *ngIf = "city.errors?.required">
+								</div>
+								<div class="error" *ngIf="city.dirty || city.touched">
+									<div *ngIf = "city.errors?.required">
 										        Поле с городом не должно быть пустым
-										</div>	
-									</div>
+									</div>	
 								</div>
 								<div class="cv_error_row">
 									<div class="cv_label">
@@ -98,11 +98,11 @@
 									<div class="cv__input">
 										<input #position="ngModel" class="inputSome" type="text" name="position" ngModel required>
 									</div>
-									<div class="error" *ngIf="position.dirty || position.touched">
-										<div *ngIf = "position.errors?.required">
+								</div>
+								<div class="error" *ngIf="position.dirty || position.touched">
+									<div *ngIf = "position.errors?.required">
 										        Поле с должностью не должно быть пустым
-										</div>	
-									</div>
+									</div>	
 								</div>
 								<div class="cv_error_row">
 									<div class="cv_label">
@@ -111,11 +111,11 @@
 									<div class="cv__input">
 										<input #salary="ngModel" class="inputSome" type="text" name="salary" ngModel required>
 									</div>
-									<div class="error" *ngIf="salary.dirty || salary.touched">
-										<div *ngIf = "salary.errors?.required">
+								</div>
+								<div class="error" *ngIf="salary.dirty || salary.touched">
+									<div *ngIf = "salary.errors?.required">
 										        Поле с доходом не должно быть пустым
-										</div>	
-									</div>
+									</div>	
 								</div>
 								<div class="cv_error_row">
 									<div class="cv_label">
@@ -127,6 +127,11 @@
 											<option value="Частичная">Частичная</option>
 										</select>
 									</div>
+								</div>
+								<div class="error" *ngIf="occupation.dirty || occupation.touched">
+									<div *ngIf = "occupation.errors?.required">
+										        Поле с занятостью не должно быть пустым
+									</div>	
 								</div>
 								<div class="cv_error_row">
 									<div class="cv_label">
@@ -143,6 +148,11 @@
 										</select>
 									</div>
 								</div>
+								<div class="error" *ngIf="education.dirty || education.touched">
+									<div *ngIf = "education.errors?.required">
+										        Поле с образованием не должно быть пустым
+									</div>	
+								</div>
 								<div class="cv_error_row">
 									<div class="cv_label">
 										<label for="educationPlace">Название учебного заведения</label>
@@ -150,11 +160,11 @@
 									<div class="cv__input">
 										<input #educationPlace="ngModel" class="inputSome" type="text" name="educationPlace" ngModel required>
 									</div>
-									<div class="error" *ngIf="educationPlace.dirty || educationPlace.touched">
-										<div *ngIf = "educationPlace.errors?.required">
+								</div>
+								<div class="error" *ngIf="educationPlace.dirty || educationPlace.touched">
+									<div *ngIf = "educationPlace.errors?.required">
 										        Поле с названием учебного заведения не должно быть пустым
-										</div>	
-									</div>
+									</div>	
 								</div>
 								<div class="cv_error_row">
 									<div class="cv_label">
@@ -163,11 +173,11 @@
 									<div class="cv__input">
 										<input #faculty="ngModel" class="inputSome" type="text" name="faculty" ngModel required>
 									</div>
-									<div class="error" *ngIf="faculty.dirty || faculty.touched">
-										<div *ngIf = "faculty.errors?.required">
+								</div>
+								<div class="error" *ngIf="faculty.dirty || faculty.touched">
+									<div *ngIf = "faculty.errors?.required">
 										        Поле с факультетом не должно быть пустым
-										</div>	
-									</div>
+									</div>	
 								</div>
 								<div class="cv_error_row">
 									<div class="cv_label">
@@ -176,24 +186,31 @@
 									<div class="cv__input">
 										<input #speciality="ngModel" class="inputSome" type="text" name="speciality" ngModel required>
 									</div>
-									<div class="error" *ngIf="speciality.dirty || speciality.touched">
-										<div *ngIf = "speciality.errors?.required">
+								</div>
+								<div class="error" *ngIf="speciality.dirty || speciality.touched">
+									<div *ngIf = "speciality.errors?.required">
 										        Поле со специальностью не должно быть пустым
-										</div>	
-									</div>
+									</div>	
 								</div>
 								<div class="cv_error_row">
 									<div class="cv_label">
 										<label for="aboutYou">О себе</label>
 									</div>
 									<div class="cv__input">
-										<textarea name="aboutYou"></textarea>
+										<textarea #aboutYou="ngModel" name="aboutYou" ngModel required></textarea>
 									</div>
-									<div class="error" *ngIf="speciality.dirty || speciality.touched">
-										<div *ngIf = "speciality.errors?.required">
-										        Поле с названием не должно быть пустым
-										</div>	
-									</div>
+								</div>
+								<div class="error" *ngIf="aboutYou.dirty || aboutYou.touched">
+									<div *ngIf = "aboutYou.errors?.required">
+										        Напишите что-нибудь о себе
+									</div>	
+								</div>
+							</div>
+						</div>
+						<div class="form_button">
+							<div class="button__row">
+								<div class="button__buttonField">
+									<button type="submit" (click)="addCV(CVForm.value)" [disabled]="CVForm.invalid">Создать резюме</button>
 								</div>
 							</div>
 						</div>
