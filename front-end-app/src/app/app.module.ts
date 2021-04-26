@@ -24,6 +24,7 @@ import { UserCvsComponent } from './user-cvs/user-cvs.component';
 import { UserDocumentsComponent } from './user-documents/user-documents.component';
 import { UserResponsesComponent } from './user-responses/user-responses.component';
 import { CVcreationComponent } from './cvcreation/cvcreation.component';
+import { CvPageComponent } from './cv-page/cv-page.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { CVcreationComponent } from './cvcreation/cvcreation.component';
     UserCvsComponent,
     UserDocumentsComponent,
     UserResponsesComponent,
-    CVcreationComponent
+    CVcreationComponent,
+    CvPageComponent
   ],
   imports: [
     BrowserModule,

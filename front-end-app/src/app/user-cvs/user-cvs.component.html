@@ -1,1 +1,3 @@
-<p>user-cvs works!</p>
+<ul>
+    <li *ngFor="let cv of user.cvs; let i = index"><a [routerLink]="['cv-page']" (click)="setIndex({{i}})">{{cv.position}}</a></li>
+</ul>

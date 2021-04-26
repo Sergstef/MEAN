@@ -14,6 +14,7 @@ import { UserCvsComponent } from './user-cvs/user-cvs.component';
 import { UserDocumentsComponent } from './user-documents/user-documents.component';
 import { UserResponsesComponent } from './user-responses/user-responses.component';
 import { CVcreationComponent } from './cvcreation/cvcreation.component';
+import { CvPageComponent } from './cv-page/cv-page.component';
 
 const routes: Routes = [
 	{path: '', component: HomeComponent},
@@ -26,7 +27,8 @@ const routes: Routes = [
 			{path: 'user-cvs', component: UserCvsComponent},
 			{path: 'user-documents', component: UserDocumentsComponent},
 			{path: 'user-responses', component: UserResponsesComponent},
-			{path: '', redirectTo: 'profile', pathMatch: 'full'}
+			{path: '', redirectTo: 'profile', pathMatch: 'full'},
+			{path: 'cv-page', component: CvPageComponent}
 		]},
 	{path: 'select-auth', component: SelectAuthComponent},
 	{path: 'company-registration', component: CompanyRegistrationComponent},

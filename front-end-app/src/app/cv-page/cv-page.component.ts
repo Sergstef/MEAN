@@ -4,25 +4,25 @@ import { Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
-  selector: 'app-user-cvs',
-  templateUrl: './user-cvs.component.html',
-  styleUrls: ['./user-cvs.component.css']
+  selector: 'app-cv-page',
+  templateUrl: './cv-page.component.html',
+  styleUrls: ['./cv-page.component.css']
 })
-export class UserCvsComponent implements OnInit {
-
-  user: any;
-  index!: number;
+export class CvPageComponent implements OnInit {
+	user: any;
+	cvs: any;
+  	index!: number;
 
   constructor(private authentificationService: AuthentificationService) { 
   	this.user = authentificationService.getUser();
   	this.user = JSON.parse(this.user);
+  	
   }
 
   ngOnInit(): void {
+
   }
 
-  setIndex(index: number) {
-    this.index = index;
-  } 
+
 
 }
