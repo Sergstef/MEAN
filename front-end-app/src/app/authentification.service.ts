@@ -116,12 +116,11 @@ export class AuthentificationService {
   }
 
   setCvsIndex(obj: any) {
-    localStorage.setItem('cvs', obj.cvs);
+    localStorage.cvs = JSON.stringify(obj.cvs);
     localStorage.setItem('index', obj.index);
   }
 
   getCvs() {
-    console.log(localStorage.getItem('cvs'));
     return localStorage.getItem('cvs');
   }
 

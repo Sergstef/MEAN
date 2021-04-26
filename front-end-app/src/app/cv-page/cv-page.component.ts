@@ -12,13 +12,14 @@ export class CvPageComponent implements OnInit {
 	cv: any;
 
   constructor(private authentificationService: AuthentificationService) { 
-  	const cvs = this.authentificationService.getCvs()!;
+  	const cvs = JSON.parse(this.authentificationService.getCvs()!);
   	const index = +this.authentificationService.getIndex()!;
   	for(let i = 0; i < cvs.length; i++) {
   		if (i == index) {
   			this.cv = cvs[i];
   		}
   	}
+  	console.log(this.cv);
   }
 
   ngOnInit(): void {
