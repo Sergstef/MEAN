@@ -9,14 +9,16 @@ import { FlashMessagesService } from 'angular2-flash-messages';
   styleUrls: ['./cv-page.component.css']
 })
 export class CvPageComponent implements OnInit {
-	user: any;
-	cvs: any;
-  	index!: number;
+	cv: any;
 
   constructor(private authentificationService: AuthentificationService) { 
-  	this.user = authentificationService.getUser();
-  	this.user = JSON.parse(this.user);
-  	
+  	const cvs = this.authentificationService.getCvs()!;
+  	const index = +this.authentificationService.getIndex()!;
+  	for(let i = 0; i < cvs.length; i++) {
+  		if (i == index) {
+  			this.cv = cvs[i];
+  		}
+  	}
   }
 
   ngOnInit(): void {

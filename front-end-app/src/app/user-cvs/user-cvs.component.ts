@@ -23,6 +23,11 @@ export class UserCvsComponent implements OnInit {
 
   setIndex(index: number) {
     this.index = index;
+    const obj = {
+      cvs: this.user.cvs,
+      index: this.index
+    }
+    this.authentificationService.setCvsIndex(obj);
   } 
 
 }

@@ -13,6 +13,8 @@ export class AuthentificationService {
   token: any; 
   user: any;
   company: any;
+  cvs: any;
+  index!: number;
 
   constructor(private http: Http) { }
 
@@ -111,6 +113,20 @@ export class AuthentificationService {
 
   getUser() {
     return localStorage.getItem('user');
+  }
+
+  setCvsIndex(obj: any) {
+    localStorage.setItem('cvs', obj.cvs);
+    localStorage.setItem('index', obj.index);
+  }
+
+  getCvs() {
+    console.log(localStorage.getItem('cvs'));
+    return localStorage.getItem('cvs');
+  }
+
+  getIndex() {
+    return localStorage.getItem('index');
   }
 
 }
