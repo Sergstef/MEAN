@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from "jquery";
 import { AuthentificationService } from '../authentification.service';
+import { CompanyAuthentificationService } from '../company-authentification.service';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +10,8 @@ import { AuthentificationService } from '../authentification.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(public authService: AuthentificationService) { }
+  constructor(public authService: AuthentificationService,
+  	public companyAuthentificationService: CompanyAuthentificationService) { }
 
   ngOnInit(): void {
   	 $(document).ready(function() {

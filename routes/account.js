@@ -3,6 +3,7 @@ const router = express.Router();
 const User = require('../models/user');
 const Company = require('../models/company');
 const CV = require('../models/CV');
+const Vacancy = require('../models/vacancy');
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
 const config = require('../config/db');
@@ -85,6 +86,38 @@ router.post('/addCV', (req, res) => {
 	});
 });
 
+router.post('/addVacancy', (req, res) => {
+	let newVacancy = new Vacancy({
+		name: req.body.vacancy.name,
+		email: req.body.vacancy.email,
+		city: req.body.vacancy.city,
+		position: req.body.vacancy.position,
+		salary: req.body.vacancy.salary,
+		occupation: req.body.vacancy.occupation,
+		experience: req.body.vacancy.experience,
+		responsibility: req.body.vacancy.responsibility,
+		requirements: req.body.vacancy.requirements,
+		conditions: req.body.vacancy.conditions,
+		aboutYou: req.body.vacancy.aboutYou
+	});
+
+	let newCompany = new Company({
+		name: req.body.company.name,
+		adress: req.body.company.adress,
+		phoneNumber: req.body.company.phoneNumber,
+		email: req.body.company.email
+	});
+
+	Company.addVacancyToCompany(newCompany.email, newVacancy, (err, user) => {
+		if(err){
+			throw err;
+			res.json({success: false, msg: "Вакансия не было добавлен пользователю"});
+		} 
+		else
+			res.json({success: true, msg: "Вакансия было добавлен пользователю"});
+	});
+});
+
 router.post('/regCV', (req, res) => {
 	let newCV = new CV({
 		name: req.body.CV.name,
@@ -117,6 +150,38 @@ router.post('/regCV', (req, res) => {
 		} 
 		else
 			res.json({success: true, msg: "Резюме было добавлен"});
+	});
+});
+
+router.post('/regVacancy', (req, res) => {
+	let newVacancy = new Vacancy({
+		name: req.body.vacancy.name,
+		email: req.body.vacancy.email,
+		city: req.body.vacancy.city,
+		position: req.body.vacancy.position,
+		salary: req.body.vacancy.salary,
+		occupation: req.body.vacancy.occupation,
+		experience: req.body.vacancy.experience,
+		responsibility: req.body.vacancy.responsibility,
+		requirements: req.body.vacancy.requirements,
+		conditions: req.body.vacancy.conditions,
+		aboutYou: req.body.vacancy.aboutYou
+	});
+
+	let newCompany = new Company({
+		name: req.body.company.name,
+		adress: req.body.company.adress,
+		phoneNumber: req.body.company.phoneNumber,
+		email: req.body.company.email
+	});
+
+	Vacancy.addVacancy(newVacancy, (err, user) => {
+		if(err){
+			throw err;
+			res.json({success: false, msg: "Вакансия не было добавлен"});
+		} 
+		else
+			res.json({success: true, msg: "Вакансия было добавлен"});
 	});
 });
 
@@ -161,6 +226,23 @@ router.post('/updateUser', (req, res) => {
 					phoneNumber: user.phoneNumber,
 					email: user.email,
 					cvs: user.cvs
+				}});
+		});
+});
+
+router.post('/updateCompany', (req, res) => {
+	const email = req.body.email;
+	Company.getCompanyByEmail(email, (err, company) => {
+				const token = jwt.sign(company.toJSON(), config.secret, {
+					expiresIn: 3600 * 24 
+				});
+
+				res.json({success: true, token: 'JWT' + token, company: {
+					name: company.name,
+					adress: company.adress,
+					phoneNumber: company.phoneNumber,
+					email: company.email,
+					vacancies: company.vacancies
 				}});
 		});
 });

@@ -1,5 +1,68 @@
-<div class="jumbotron">
-	<h1>Кабинет компании</h1>
-	<br>
-	<button class="btn btn-warning" (click)="logoutUser()">Exit</button>
+<div class="profile">
+	<div class="content">
+		<div class="profile_row">
+			<div class="profile_header">
+				<div class="header_row">
+					<div class="header_heading">
+						Профиль компании
+					</div>
+					<div class="header_createCV">
+						<button class="btn btn-success" type="button" routerLink="../vacancy-creation">Создать вакансию</button>
+					</div>
+				</div>
+			</div>
+			<div class="profile_hiddenMenu">
+				<div class="hiddenMenu_row">
+					<div class="hiddenMenu_heading">Меню</div>
+					<div class="hiddenMenu_menu">
+						<ul class="hiddenMenu_menu_row">
+							<li><a [routerLink]="['company-profile']">Персональная информация</a></li>
+							<li><a [routerLink]="['company-vacancies']">Вакансии</a></li>
+							<li><a [routerLink]="['company-responses']">Отклики</a></li>
+							<li><a [routerLink]="['company-documents']">Документы</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="profile_body">
+				<div class="body_row">
+					<div class="body_content">
+						<router-outlet></router-outlet>
+					</div>
+					<div class="body_menu">
+						<div class="menu_content">
+							<div class="menu_row">
+								<div class="menu_heading">
+									Меню
+								</div>
+								<div class="menu_options">
+									<div class="options_row">
+										<div class="options_item">
+											<a [routerLink]="['company-profile']">Персональная информация</a>
+										</div>
+										<div class="options_item">
+											<a [routerLink]="['company-vacancies']">Вакансии</a>
+										</div>
+										<div class="options_item">
+											<a [routerLink]="['company-responses']">Отклики</a>
+										</div>
+										<div class="options_item">
+											<a [routerLink]="['company-documents']"> Документы</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="profile_footer">
+				<div class="footer_row">
+					<div class="footer_logoutButton">
+						<button class="buttonItem" type="button" (click)="logoutUser()">Выйти</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

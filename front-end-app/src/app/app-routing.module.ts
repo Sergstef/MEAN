@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { IsLoggedIn } from './isLogged.guard';
+import { IsLoggedCompanyIn } from './isLoggedCompany.guard';
 import { SelectAuthComponent } from './select-auth/select-auth.component';
 import { CompanyRegistrationComponent } from './company-registration/company-registration.component';
 import { CompanyAuthComponent } from './company-auth/company-auth.component';
@@ -15,6 +16,12 @@ import { UserDocumentsComponent } from './user-documents/user-documents.componen
 import { UserResponsesComponent } from './user-responses/user-responses.component';
 import { CVcreationComponent } from './cvcreation/cvcreation.component';
 import { CvPageComponent } from './cv-page/cv-page.component';
+import { CompanyProfileComponent } from './company-profile/company-profile.component';
+import { CompanyVacanciesComponent } from './company-vacancies/company-vacancies.component';
+import { CompanyResponsesComponent } from './company-responses/company-responses.component';
+import { CompanyDocumentsComponent } from './company-documents/company-documents.component';
+import { VacancyCreationComponent } from './vacancy-creation/vacancy-creation.component';
+import { VacancyPageComponent } from './vacancy-page/vacancy-page.component';
 
 const routes: Routes = [
 	{path: '', component: HomeComponent},
@@ -33,8 +40,18 @@ const routes: Routes = [
 	{path: 'select-auth', component: SelectAuthComponent},
 	{path: 'company-registration', component: CompanyRegistrationComponent},
 	{path: 'company-auth', component: CompanyAuthComponent},
-	{path: 'company-dashboard', component: CompanyDashboardComponent, canActivate: [IsLoggedIn]},
-	{path: 'cvcreation', component: CVcreationComponent}
+	{path: 'company-dashboard', component: CompanyDashboardComponent, canActivate: [IsLoggedCompanyIn],
+		children: [
+			{path: 'company-profile', component: CompanyProfileComponent},
+			{path: 'company-vacancies', component: CompanyVacanciesComponent},
+			{path: 'company-documents', component: CompanyDocumentsComponent},
+			{path: 'company-responses', component: CompanyResponsesComponent},
+			{path: '', redirectTo: 'company-profile', pathMatch: 'full'},
+			{path: 'vacancy-page', component: VacancyPageComponent}
+		]
+	},
+	{path: 'cvcreation', component: CVcreationComponent},
+	{path: 'vacancy-creation', component: VacancyCreationComponent}
 ];
 
 @NgModule({

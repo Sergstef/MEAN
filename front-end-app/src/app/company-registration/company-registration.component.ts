@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthentificationService } from '../authentification.service';
+import { CompanyAuthentificationService } from '../company-authentification.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class CompanyRegistrationComponent implements OnInit {
 
   constructor(private router: Router,
-  			  private authentificationService: AuthentificationService
+  			  private companyAuthentificationService: CompanyAuthentificationService
   			  ) { }
 
   ngOnInit(): void {
@@ -25,7 +25,7 @@ export class CompanyRegistrationComponent implements OnInit {
   		password: formObj.password
   	}
 
-    this.authentificationService.registerCompany(company).subscribe(data => {
+    this.companyAuthentificationService.registerCompany(company).subscribe(data => {
       if(!data.success) {
         console.log('err.message');
         console.log(data.msg);

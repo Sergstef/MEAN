@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthentificationService } from '../authentification.service';
+import { CompanyAuthentificationService } from '../company-authentification.service';
 import { Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
 
@@ -11,14 +11,14 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 export class CompanyDashboardComponent implements OnInit {
 
   constructor(private router: Router,
-          private authentificationService: AuthentificationService,
+          private companyAuthentificationService: CompanyAuthentificationService,
           private flashMessages: FlashMessagesService) { }
 
   ngOnInit(): void {
   }
 
   logoutUser() {
-  	this.authentificationService.logoutCompany();
+  	this.companyAuthentificationService.logoutCompany();
   	this.router.navigate(['../home']);
   	return false;
   }

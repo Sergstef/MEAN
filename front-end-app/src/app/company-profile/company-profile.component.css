@@ -1,0 +1,9 @@
+.labelName {
+	margin-bottom: 0px;
+}
+
+.flexContainer {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 15px;
+}

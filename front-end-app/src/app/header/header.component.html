@@ -17,8 +17,9 @@
 							<a class="button_item" routerLink="../home">Главная</a>
 							<a class="button_item">О нас</a>
 							<a class="button_item">Контакты</a>
-							<a *ngIf="!authService.isLoggedIn()" class="button_item" routerLink="../auth">Войти</a>
+							<a *ngIf="!authService.isLoggedIn() && !companyAuthentificationService.isLoggedIn()" class="button_item" routerLink="../auth">Войти</a>
 							<a *ngIf="authService.isLoggedIn()" class="button_item" routerLink="../dashboard">Мой профиль</a>
+							<a *ngIf="companyAuthentificationService.isLoggedIn()" class="button_item" routerLink="../company-dashboard">Профиль компании</a>
 						</nav>
 					</div>
 					<div class="blocks_menu">

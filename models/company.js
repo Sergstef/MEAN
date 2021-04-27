@@ -7,7 +7,8 @@ const CompanySchema = mongoose.Schema({
     adress: {type: String, required: true},
     phoneNumber: {type: String, required: true},
     email: {type: String, required: true}, 
-    password: {type: String, required: true}
+    password: {type: String, required: true},
+    vacancies: {type: Array, required: true}
 });
 
 const Company = module.exports = mongoose.model('Company', CompanySchema);
@@ -15,6 +16,16 @@ const Company = module.exports = mongoose.model('Company', CompanySchema);
 module.exports.getCompanyByEmail = function(email, callback) {
 	const query = {email: email};
 	Company.findOne(query, callback);
+};
+
+module.exports.addVacancyToCompany = function(email, vacancy, callback) {
+	const query = {email: email};
+	Company.update(query,
+	 {
+	 	$push: {
+	 		vacancies: vacancy
+	 	}
+	 }, callback)
 };
 
 module.exports.addCompany = function(newCompany, callback) {

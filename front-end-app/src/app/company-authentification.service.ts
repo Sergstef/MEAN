@@ -3,97 +3,92 @@ import { Http, Headers } from '@angular/http';
 import { map } from 'rxjs/operators';
 import { tokenNotExpired } from 'angular2-jwt';
 
-
-
 @Injectable({
   providedIn: 'root'
 })
-export class AuthentificationService {
+export class CompanyAuthentificationService {
 
-  token: any; 
-  user: any;
-  cvs: any;
-  index!: number;
+	 token: any; 
+	 company: any;
 
   constructor(private http: Http) { }
 
-  registerUser(user: any) {
-  	let headers = new Headers();
-  	headers.append('Content-Type', 'application/json');
-  	return this.http.post('http://localhost:3000/account/reg',
-  							 user,
-  							 {headers: headers} 
-  							 ).pipe(map((response: any) => response.json()));
-  }
-
-  registerCV(arr: any) {
+  registerCompany(company: any) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/account/regCV',
+    return this.http.post('http://localhost:3000/account/regCompany',
+                 company,
+                 {headers: headers} 
+                 ).pipe(map((response: any) => response.json()));
+  }
+
+  authCompany(company: any) {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:3000/account/authCompany',
+                 company,
+                 {headers: headers} 
+                 ).pipe(map((response: any) => response.json()));
+  }
+
+  addVacancy(arr: any) {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:3000/account/addVacancy',
                  arr,
                  {headers: headers} 
                  ).pipe(map((response: any) => response.json()));
   }
 
-  addCV(arr: any) {
+  registerVacancy(arr: any) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/account/addCV',
+    return this.http.post('http://localhost:3000/account/regVacancy',
                  arr,
                  {headers: headers} 
                  ).pipe(map((response: any) => response.json()));
   }
 
-  authUser(user: any) {
+  updateCompany(company: any) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/account/auth',
-                 user,
+    return this.http.post('http://localhost:3000/account/updateCompany',
+                 company,
                  {headers: headers} 
                  ).pipe(map((response: any) => response.json()));
   }
 
-  updateUser(user: any) {
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/account/updateUser',
-                 user,
-                 {headers: headers} 
-                 ).pipe(map((response: any) => response.json()));
-  }
-
-  storeUser(token: any, user: any) {
+  storeCompany(token: any, company: any) {
     localStorage.setItem('token', token);
-    localStorage.setItem('user', JSON.stringify(user));
+    localStorage.setItem('company', JSON.stringify(company));
     this.token = token;
-    this.user = user;
+    this.company = company;
   }
 
-  logout() {
+  logoutCompany() {
     this.token = null;
-    this.user = null;
+    this.company = null;
     localStorage.clear();
   }
 
   isLoggedIn() {
-    return localStorage.getItem('user');
+    return localStorage.getItem('company');
   }
 
-  getUser() {
-    return localStorage.getItem('user');
+  getCompany() {
+    return localStorage.getItem('company');
   }
 
-  setCvsIndex(obj: any) {
-    localStorage.cvs = JSON.stringify(obj.cvs);
+  setVacanciesIndex(obj: any) {
+    localStorage.vacancies = JSON.stringify(obj.vacancies);
     localStorage.setItem('index', obj.index);
   }
 
-  getCvs() {
-    return localStorage.getItem('cvs');
+  getVacancies() {
+    return localStorage.getItem('vacancies');
   }
 
   getIndex() {
     return localStorage.getItem('index');
   }
-
 }

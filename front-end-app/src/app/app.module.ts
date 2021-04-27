@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { IsLoggedIn } from './isLogged.guard';
+import { IsLoggedCompanyIn } from './isLoggedCompany.guard';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +26,12 @@ import { UserDocumentsComponent } from './user-documents/user-documents.componen
 import { UserResponsesComponent } from './user-responses/user-responses.component';
 import { CVcreationComponent } from './cvcreation/cvcreation.component';
 import { CvPageComponent } from './cv-page/cv-page.component';
+import { CompanyProfileComponent } from './company-profile/company-profile.component';
+import { CompanyVacanciesComponent } from './company-vacancies/company-vacancies.component';
+import { CompanyResponsesComponent } from './company-responses/company-responses.component';
+import { CompanyDocumentsComponent } from './company-documents/company-documents.component';
+import { VacancyCreationComponent } from './vacancy-creation/vacancy-creation.component';
+import { VacancyPageComponent } from './vacancy-page/vacancy-page.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +51,13 @@ import { CvPageComponent } from './cv-page/cv-page.component';
     UserDocumentsComponent,
     UserResponsesComponent,
     CVcreationComponent,
-    CvPageComponent
+    CvPageComponent,
+    CompanyProfileComponent,
+    CompanyVacanciesComponent,
+    CompanyResponsesComponent,
+    CompanyDocumentsComponent,
+    VacancyCreationComponent,
+    VacancyPageComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +67,7 @@ import { CvPageComponent } from './cv-page/cv-page.component';
     HttpModule,
     FlashMessagesModule.forRoot()
   ],
-  providers: [AuthentificationService, IsLoggedIn],
+  providers: [AuthentificationService, IsLoggedIn, IsLoggedCompanyIn],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

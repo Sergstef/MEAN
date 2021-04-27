@@ -1,0 +1,110 @@
+.error {
+	color: red; 
+	margin-bottom: 20px;
+}
+
+.cv {
+	height: 100%;
+}
+
+.cv_box {
+	margin: 30px 20px 50px 20px;
+}
+
+.cv_heading {
+	font-size: 35px;
+	color:  #47525E;
+	margin-bottom: 30px;
+}
+
+.cv_row {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.cv_form {
+	width: 70%;
+}
+
+.fields_row {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.cv_error_row {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 10px;
+}
+
+.cv__input input{
+	width: 300px;
+	height: 40px;
+}
+
+.cv__input select{
+	width: 300px;
+	height: 40px;
+}
+
+.cv__input textarea{
+	width: 300px;
+	height: 110px;
+}
+
+.cv_label {
+	font-size: 20px;
+	margin-bottom: 10px;
+}
+
+.button__row {
+	display: flex;
+	justify-content: center;
+}
+
+.button__buttonField button {
+	background-color:  #47525E;
+	color: white;
+	border-radius: 5px;
+	padding: 10px;
+	letter-spacing: 1px;
+}
+
+@media (max-width: 800px) {
+	.cv_box {
+		margin-top: 60px;
+	}
+	.cv_error_row {
+		flex-direction: column;
+		align-items: center;
+	}
+}
+
+@media (max-width: 365px) {
+	.cv_heading {
+		font-size: 25px;
+	}
+	.cv_label {
+		font-size: 17px;
+	}
+	.cv__input input{
+		width: 200px;
+		height: 40px;
+	}
+
+	.cv__input select{
+		width: 200px;
+		height: 40px;
+	}
+
+	.cv__input textarea{
+		width: 200px;
+		height: 110px;
+	}
+}
+
+
+

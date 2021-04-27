@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthentificationService } from '../authentification.service';
+import { CompanyAuthentificationService } from '../company-authentification.service';
 import { Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
 
@@ -11,7 +11,7 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 export class CompanyAuthComponent implements OnInit {
 
   constructor(private router: Router,
-          private authentificationService: AuthentificationService,
+          private companyAuthentificationService: CompanyAuthentificationService,
           private flashMessages: FlashMessagesService) { 
   	
   }
@@ -33,7 +33,7 @@ export class CompanyAuthComponent implements OnInit {
       return false;
     }
 
-    this.authentificationService.authCompany(company).subscribe(data => {
+    this.companyAuthentificationService.authCompany(company).subscribe(data => {
       if(!data.success) {
         this.flashMessages.show(data.msg, {
           cssClass: 'alert-danger',
@@ -43,7 +43,7 @@ export class CompanyAuthComponent implements OnInit {
       } else {
         console.log('Вы успешно авторизовались');
         this.router.navigate(['../company-dashboard']);
-        this.authentificationService.storeCompany(data.token, data.company);
+        this.companyAuthentificationService.storeCompany(data.token, data.company);
       }  
     })
 

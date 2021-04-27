@@ -1,0 +1,158 @@
+.profile {
+	background-color: white;
+	color: #47525E;
+	padding: 25px 0px 70px 0px;
+	height: auto;
+}
+
+.content {
+	padding: 0px 45px 0px 45px;
+}
+
+.profile_row {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.profile_header {
+	width: 100%;
+	margin-bottom: 40px;
+}
+
+.header_row {
+	display: flex;
+	justify-content: space-around;
+}
+
+.header_heading {
+	font-size: 30px;
+}
+
+.profile_body {
+	width: 100%;
+	margin-bottom: 50px;
+}
+
+.body_row {
+	display: flex;
+	justify-content: space-between;
+}
+
+.body_content {
+	width: 50%;
+	margin-right: 30px;
+}
+
+.body_menu {
+	width: 50%;
+	height: 276px;
+	border: 2px solid #47525E;
+	border-radius: 3px;
+}
+
+.menu_content {
+	margin: 10px;
+}
+
+.menu_row {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.menu_heading {
+	font-size: 24px;
+	margin-bottom: 12px;
+}
+
+.menu_options {
+	width: 100%;
+}
+
+.options_row {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.options_item {
+	width: 100%;
+	border: 1px solid #47525E;
+	border-radius: 3px;
+	margin-bottom: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 35px;
+}
+
+.buttonItem {
+	height: 30px;
+	width: 110px;
+	background-color: #f2d3d5;
+	border: 1px solid #cf7e83;
+	border-radius: 5px;
+	color: #cf7e83;
+	font-weight: bold;
+	font-size: 16px;
+	letter-spacing: 1px;
+}
+
+.buttonItem:hover {
+	background-color: #e0757c;
+	color: #fce3e5;
+}
+
+.profile_hiddenMenu {
+	display: none;
+}
+
+@media (max-width: 745px) {
+	.header_heading {
+		font-size: 25px;
+	}
+}
+
+@media (max-width: 803px) {
+	.profile {
+		padding: 65px 0px 30px 0px;
+	}
+}
+
+@media (max-width: 657px) {
+	.profile_hiddenMenu {
+		display: block;
+		width: 100%;
+		margin-bottom: 10px;
+	}
+	.body_menu {
+		display: none;
+	}
+	.body_content {
+		width: 100%;
+		margin-right: 0px;
+	}
+	.profile_header {
+		margin-bottom: 20px;
+	}
+	.hiddenMenu_heading {
+		font-size: 22px;
+	}
+}
+
+
+@media (max-width: 557px) {
+	.header_row {
+		display: flex;
+		justify-content: normal;
+		flex-direction: column;
+	}
+	.header_heading {
+		margin-bottom: 10px;
+	}
+}
+
