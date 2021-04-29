@@ -22,6 +22,7 @@ import { CompanyResponsesComponent } from './company-responses/company-responses
 import { CompanyDocumentsComponent } from './company-documents/company-documents.component';
 import { VacancyCreationComponent } from './vacancy-creation/vacancy-creation.component';
 import { VacancyPageComponent } from './vacancy-page/vacancy-page.component';
+import { VacanciesComponent } from './vacancies/vacancies.component';
 
 const routes: Routes = [
 	{path: '', component: HomeComponent},
@@ -51,7 +52,8 @@ const routes: Routes = [
 		]
 	},
 	{path: 'cvcreation', component: CVcreationComponent},
-	{path: 'vacancy-creation', component: VacancyCreationComponent}
+	{path: 'vacancy-creation', component: VacancyCreationComponent},
+	{path: 'vacancies', component: VacanciesComponent}
 ];
 
 @NgModule({

@@ -16,6 +16,7 @@ export class CompanyVacanciesComponent implements OnInit {
   constructor(private companyAuthentificationService: CompanyAuthentificationService) { 
   	this.company = companyAuthentificationService.getCompany();
   	this.company = JSON.parse(this.company);
+    console.log(this.company);
   }
 
   ngOnInit(): void {

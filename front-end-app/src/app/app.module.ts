@@ -32,6 +32,7 @@ import { CompanyResponsesComponent } from './company-responses/company-responses
 import { CompanyDocumentsComponent } from './company-documents/company-documents.component';
 import { VacancyCreationComponent } from './vacancy-creation/vacancy-creation.component';
 import { VacancyPageComponent } from './vacancy-page/vacancy-page.component';
+import { VacanciesComponent } from './vacancies/vacancies.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { VacancyPageComponent } from './vacancy-page/vacancy-page.component';
     CompanyResponsesComponent,
     CompanyDocumentsComponent,
     VacancyCreationComponent,
-    VacancyPageComponent
+    VacancyPageComponent,
+    VacanciesComponent
   ],
   imports: [
     BrowserModule,

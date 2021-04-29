@@ -213,6 +213,16 @@ router.post('/auth', (req, res) => {
 	})
 });
 
+router.get('/getVacancies', (req, res) => {
+	Vacancy.getVacancies((err, vacancies) => {
+		if(err) {
+			console.log("Ошибка");
+		} else {
+			res.json(vacancies);
+		}
+	})
+});
+
 router.post('/updateUser', (req, res) => {
 	const email = req.body.email;
 	User.getUserByEmail(email, (err, user) => {
@@ -265,7 +275,8 @@ router.post('/authCompany', (req, res) => {
 					name: company.name,
 					adress: company.adress,
 					phoneNumber: company.phoneNumber,
-					email: company.email
+					email: company.email,
+					vacancies: company.vacancies
 				}}); 
 			} else {
 				return res.json({success: false, msg: "Пароли не совпадают"}); 

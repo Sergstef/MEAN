@@ -21,3 +21,7 @@ const Vacancy = module.exports = mongoose.model('Vacancy', VacancySchema);
 module.exports.addVacancy = function(newVacancy, callback) {
 	newVacancy.save(callback);
 };
+
+module.exports.getVacancies = function(callback) {
+    Vacancy.find().exec(callback);
+}

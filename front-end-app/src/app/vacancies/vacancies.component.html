@@ -1,0 +1,17 @@
+<div class="vacancies">
+	<div class="vacancies_box">
+		<div class="vacancies_heading">
+			Вакансии
+		</div>
+		<div class="vacancies_body">
+			<div class="body_row" >
+				<ul class="body_items">
+				    <li *ngFor="let vacancy of vacancies"><div class="body_item">
+				    	<div class="item_position">{{vacancy.position}}</div>
+				    	<div class="item_name">{{vacancy.name}}</div>
+				    </div></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
