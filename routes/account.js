@@ -223,6 +223,18 @@ router.get('/getVacancies', (req, res) => {
 	})
 });
 
+router.get('/getVacInfo', (req, res) => {
+	const id = req.id;
+	console.log(req.id);
+	Vacancy.getVacancy(id, (err, vacancy) => {
+		if(err) {
+			console.log("Ошибка");
+		} else {
+			res.json(vacancy);
+		}
+	})
+});
+
 router.post('/updateUser', (req, res) => {
 	const email = req.body.email;
 	User.getUserByEmail(email, (err, user) => {

@@ -7,8 +7,9 @@
 			<div class="body_row" >
 				<ul class="body_items">
 				    <li *ngFor="let vacancy of vacancies"><div class="body_item">
-				    	<div class="item_position">{{vacancy.position}}</div>
-				    	<div class="item_name">{{vacancy.name}}</div>
+				    	<div class="item_position"><a routerLink="../vacancy/" (click)="sendId(vacancy._id)">{{vacancy.position}}</a></div>
+				    	<div class="item_name">Компания: {{vacancy.name}}</div>
+				    	<div class="item_requirements">Требования: {{vacancy.requirements}}</div>
 				    </div></li>
 				</ul>
 			</div>

@@ -25,3 +25,8 @@ module.exports.addVacancy = function(newVacancy, callback) {
 module.exports.getVacancies = function(callback) {
     Vacancy.find().exec(callback);
 }
+
+module.exports.getVacancy = function(id, callback) {
+    const query = {_id: id};
+    Vacancy.findOne(query, callback);
+}

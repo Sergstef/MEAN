@@ -15,4 +15,10 @@ export class LoadDataService {
     return this.http.get('http://localhost:3000/account/getVacancies')
     				.pipe(map((response: any) => response.json()));
   }
+
+  getVacancy(id: any): Observable<Vacancy> {
+    return this.http.get('http://localhost:3000/account/getVacInfo',
+                 id
+                 ).pipe(map((response: any) => response.json()));
+  }
 }

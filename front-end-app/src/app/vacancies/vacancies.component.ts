@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoadDataService } from '../load-data.service';
+import { ExchangeDataService } from '../exchange-data.service';
 import { Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Vacancy } from '../vacancy';
@@ -14,7 +15,7 @@ export class VacanciesComponent implements OnInit {
 
   vacancies!: Array<Vacancy>;
 
-  constructor(private loadDataService: LoadDataService) { 
+  constructor(private loadDataService: LoadDataService, private exchangeDataService: ExchangeDataService) { 
   }
 
   ngOnInit(): void {
@@ -24,6 +25,10 @@ export class VacanciesComponent implements OnInit {
   get() {
   	this.loadDataService.loadVacancies()
   					.subscribe((results) => {this.vacancies = results;});
+  }
+
+  sendId(id: any) {
+    this.exchangeDataService.changeId(id);
   }
 
 }
