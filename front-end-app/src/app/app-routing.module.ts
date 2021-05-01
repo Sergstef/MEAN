@@ -24,6 +24,8 @@ import { VacancyCreationComponent } from './vacancy-creation/vacancy-creation.co
 import { VacancyPageComponent } from './vacancy-page/vacancy-page.component';
 import { VacanciesComponent } from './vacancies/vacancies.component';
 import { VacancyComponent } from './vacancy/vacancy.component';
+import { EmployersComponent } from './employers/employers.component';
+import { EmployerComponent } from './employer/employer.component';
 
 const routes: Routes = [
 	{path: '', component: HomeComponent},
@@ -55,7 +57,9 @@ const routes: Routes = [
 	{path: 'cvcreation', component: CVcreationComponent},
 	{path: 'vacancy-creation', component: VacancyCreationComponent},
 	{path: 'vacancies', component: VacanciesComponent},
-	{path: 'vacancy', component: VacancyComponent}
+	{path: 'vacancy', component: VacancyComponent},
+	{path: 'employers', component: EmployersComponent},
+	{path: 'employer', component: EmployerComponent}
 ];
 
 @NgModule({

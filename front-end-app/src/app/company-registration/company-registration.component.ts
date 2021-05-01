@@ -22,7 +22,8 @@ export class CompanyRegistrationComponent implements OnInit {
   		adress: formObj.adress,
   		phoneNumber: formObj.phoneNumber,
   		email: formObj.email,
-  		password: formObj.password
+  		password: formObj.password,
+      description: formObj.description
   	}
 
     this.companyAuthentificationService.registerCompany(company).subscribe(data => {

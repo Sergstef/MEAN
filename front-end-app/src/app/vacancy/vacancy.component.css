@@ -1,0 +1,46 @@
+.vacancy_box {
+	margin: 35px 45px;
+}
+
+.body_row {
+	display: flex;
+	flex-direction: column;
+}
+
+.item {
+	margin-bottom: 20px;
+	font-size: 18px;
+	border-bottom: 1px solid #cad2db;
+}
+
+.body_vacancyName {
+	font-size: 25px;
+	margin-bottom: 10px;
+	border-bottom: none;
+}
+
+.body_companyName {
+	margin-bottom: 10px;
+	border-bottom: none;
+}
+
+.body_salary {
+	margin-bottom: 10px;
+	border-bottom: none;
+}
+
+.body_city {
+	margin-bottom: 10px;
+	border-bottom: none;
+}
+
+.body_occupation {
+	margin-bottom: 10px;
+	border-bottom: none;
+}
+
+@media (max-width: 800px) {
+	.vacancy_box {
+		margin-top: 45px
+	}
+}

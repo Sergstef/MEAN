@@ -5,11 +5,22 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class ExchangeDataService {
-	public id: any;
 
   constructor() { }
 
-  changeId(id: any) {
-  	this.id = id;
+  changeVacancy(vacancy: any) {
+  	localStorage.vacancy = JSON.stringify(vacancy);
+  }
+
+  changeEmployer(employer: any) {
+  	localStorage.employer = JSON.stringify(employer);
+  }
+
+  getVacancy() {
+  	return localStorage.getItem('vacancy');
+  }
+
+  getEmployer() {
+  	return localStorage.getItem('employer');
   }
 }

@@ -38,7 +38,8 @@ router.post('/regCompany', (req, res) => {
 		adress: req.body.adress,
 		phoneNumber: req.body.phoneNumber,
 		email: req.body.email,
-		password: req.body.password
+		password: req.body.password,
+		description: req.body.description
 	});
 
 	Company.addCompany(newCompany, (err, user) => {
@@ -223,14 +224,12 @@ router.get('/getVacancies', (req, res) => {
 	})
 });
 
-router.get('/getVacInfo', (req, res) => {
-	const id = req.id;
-	console.log(req.id);
-	Vacancy.getVacancy(id, (err, vacancy) => {
+router.get('/getCompanies', (req, res) => {
+	Company.getCompanies((err, companies) => {
 		if(err) {
 			console.log("Ошибка");
 		} else {
-			res.json(vacancy);
+			res.json(companies);
 		}
 	})
 });
@@ -264,7 +263,8 @@ router.post('/updateCompany', (req, res) => {
 					adress: company.adress,
 					phoneNumber: company.phoneNumber,
 					email: company.email,
-					vacancies: company.vacancies
+					vacancies: company.vacancies,
+					description: company.description
 				}});
 		});
 });
@@ -288,7 +288,8 @@ router.post('/authCompany', (req, res) => {
 					adress: company.adress,
 					phoneNumber: company.phoneNumber,
 					email: company.email,
-					vacancies: company.vacancies
+					vacancies: company.vacancies,
+					description: company.description
 				}}); 
 			} else {
 				return res.json({success: false, msg: "Пароли не совпадают"}); 

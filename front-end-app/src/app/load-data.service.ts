@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import { map } from 'rxjs/operators';
 import { Vacancy } from './vacancy';
+import { Company } from './company';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -16,9 +17,8 @@ export class LoadDataService {
     				.pipe(map((response: any) => response.json()));
   }
 
-  getVacancy(id: any): Observable<Vacancy> {
-    return this.http.get('http://localhost:3000/account/getVacInfo',
-                 id
-                 ).pipe(map((response: any) => response.json()));
+  loadCompanies(): Observable<Company[]> {
+    return this.http.get('http://localhost:3000/account/getCompanies')
+    				.pipe(map((response: any) => response.json()));
   }
 }

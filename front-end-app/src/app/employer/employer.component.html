@@ -1,0 +1,25 @@
+<div class="employer">
+	<div class="employer_box">
+		<div class="employer_body">
+			<div class="body_row" >
+				<div class="body_name">
+					<div class="employer_name">
+						{{employer.name}}
+					</div>
+				</div>
+				<div class="body_description">
+					<div class="employer_description">
+						{{employer.description}}
+					</div>
+				</div>
+				<div class="body_vacancies">
+					<div class="employer_vacancies">
+						<li *ngFor="let vacancy of employer.vacancies"><div class="body_item">
+					    	<div class="item_position"><a routerLink="../vacancy/" (click)="sendVac(vacancy)">{{vacancy.position}}</a></div>
+					    </div></li>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

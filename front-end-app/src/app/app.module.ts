@@ -34,6 +34,8 @@ import { VacancyCreationComponent } from './vacancy-creation/vacancy-creation.co
 import { VacancyPageComponent } from './vacancy-page/vacancy-page.component';
 import { VacanciesComponent } from './vacancies/vacancies.component';
 import { VacancyComponent } from './vacancy/vacancy.component';
+import { EmployersComponent } from './employers/employers.component';
+import { EmployerComponent } from './employer/employer.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +63,9 @@ import { VacancyComponent } from './vacancy/vacancy.component';
     VacancyCreationComponent,
     VacancyPageComponent,
     VacanciesComponent,
-    VacancyComponent
+    VacancyComponent,
+    EmployersComponent,
+    EmployerComponent
   ],
   imports: [
     BrowserModule,

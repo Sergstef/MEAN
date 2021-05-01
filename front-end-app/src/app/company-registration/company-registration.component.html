@@ -81,6 +81,16 @@
 								</div>
 							</div>
 						</div>
+						<div class="reg_aboutCompany">
+							<div class="reg__description">
+								<textarea #description="ngModel" class="inputSome" type="text" placeholder="Описании компании" name="description" ngModel required></textarea>
+							</div>
+							<div class="error" *ngIf="description.dirty || description.touched">
+								<div *ngIf = "description.errors?.required">
+										        Введите что-нибудь о своей компании!
+								</div>	
+							</div>
+						</div>
 						<div class="form_button">
 							<div class="button__row">
 								<div class="button__buttonField">

@@ -27,8 +27,8 @@ export class VacanciesComponent implements OnInit {
   					.subscribe((results) => {this.vacancies = results;});
   }
 
-  sendId(id: any) {
-    this.exchangeDataService.changeId(id);
+  sendVac(vacancy: any) {
+    this.exchangeDataService.changeVacancy(vacancy);
   }
 
 }

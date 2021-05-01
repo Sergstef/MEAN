@@ -1,0 +1,19 @@
+<div class="employers">
+	<div class="employers_box">
+		<div class="employers_heading">
+			База работодателей
+		</div>
+		<div class="employers_subheading">
+			Список упорядочен по алфавиту
+		</div>
+		<div class="employers_body">
+			<div class="body_row" >
+				<ul class="body_items">
+				    <li *ngFor="let employer of companies"><div class="body_item">
+				    	<div class="item_position"><a routerLink="../employer" (click)="sendEmp(employer)">{{employer.name}}</a></div>			
+				    </div></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

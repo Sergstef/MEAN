@@ -8,7 +8,8 @@ const CompanySchema = mongoose.Schema({
     phoneNumber: {type: String, required: true},
     email: {type: String, required: true}, 
     password: {type: String, required: true},
-    vacancies: {type: Array, required: true}
+    vacancies: {type: Array, required: true},
+    description: {type: String, required: true}
 });
 
 const Company = module.exports = mongoose.model('Company', CompanySchema);
@@ -47,4 +48,9 @@ module.exports.comparePass = function(passFromUser, userDBPass, callback) {
 		if(err) throw err;
 		callback(null, isMatch);
 	});
+};
+
+module.exports.getCompanies = function(callback) {
+	let mySort = { name: 1 };
+    Company.find().sort(mySort).exec(callback);
 };
