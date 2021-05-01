@@ -1,4 +1,4 @@
-<div *ngIf="!authentificationService.isLoggedIn()" class="helloForm">
+<div *ngIf="!authentificationService.isLoggedIn() && !companyAuthentificationService.isLoggedIn()" class="helloForm">
 	<div class="content">
 		<div class="helloForm_row">
 			<div class="helloForm_heading">Найди лучшую стажировку <br> в компании мечты!</div>

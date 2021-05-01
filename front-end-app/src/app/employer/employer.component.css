@@ -1,0 +1,59 @@
+.employer_box {
+	margin: 25px 45px;
+}
+
+.employer_body {
+	width: 100%;
+}
+
+.body_row {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.body_name {
+	margin-bottom: 10px;
+}
+
+.employer_name {
+	font-size: 35px;
+	color:  #47525E;
+}
+
+.body_description {
+	width: 100%;
+	margin-bottom: 15px;
+}
+
+.description_heading {
+	font-size: 24px;
+}
+
+.employer_description {
+	font-size: 18px;
+}
+
+.body_vacancies {
+	width: 100%;
+}
+
+.vacancies_heading {
+	font-size: 24px;
+}
+
+.item_position {
+	font-size: 18px;
+}
+
+.body_vacancies li {
+	list-style-type: none;
+	margin-bottom: 10px;
+	font-size: 18px;
+}
+
+@media (max-width: 800px) {
+	.employer_box {
+		margin-top: 45px
+	}
+}

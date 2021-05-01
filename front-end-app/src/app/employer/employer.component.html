@@ -8,16 +8,18 @@
 					</div>
 				</div>
 				<div class="body_description">
+					<div class="description_heading">
+						Описание компании
+					</div>
 					<div class="employer_description">
 						{{employer.description}}
 					</div>
 				</div>
 				<div class="body_vacancies">
-					<div class="employer_vacancies">
-						<li *ngFor="let vacancy of employer.vacancies"><div class="body_item">
-					    	<div class="item_position"><a routerLink="../vacancy/" (click)="sendVac(vacancy)">{{vacancy.position}}</a></div>
-					    </div></li>
-					</div>
+					<div class="vacancies_heading">Вакансии компании</div>
+					<li *ngFor="let vacancy of employer.vacancies"><div class="body_item">
+					    <a class="item_position" routerLink="../vacancy/" (click)="sendVac(vacancy)">{{vacancy.position}}</a>
+					</div></li>
 				</div>
 			</div>
 		</div>

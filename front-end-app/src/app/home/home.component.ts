@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthentificationService } from '../authentification.service';
 import { Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
+import { CompanyAuthentificationService } from '../company-authentification.service';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,8 @@ export class HomeComponent implements OnInit {
 
   constructor(private router: Router,
           public authentificationService: AuthentificationService,
-          private flashMessages: FlashMessagesService) { }
+          private flashMessages: FlashMessagesService,
+          public companyAuthentificationService: CompanyAuthentificationService) { }
 
   ngOnInit(): void {
   }

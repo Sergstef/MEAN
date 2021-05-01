@@ -65,8 +65,7 @@ export class VacancyCreationComponent implements OnInit {
         console.log(data.msg);
         this.router.navigate(['/company-dashboard/company-profile']);
       } else {
-        this.companyAuthentificationService.logoutCompany();
-        console.log('Вы успешно обновили поль');
+        console.log(data.company);
         this.router.navigate(['/company-dashboard/company-vacancies']);
         this.companyAuthentificationService.storeCompany(data.token, data.company);
       }  

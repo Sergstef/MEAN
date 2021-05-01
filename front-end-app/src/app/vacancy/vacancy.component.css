@@ -19,26 +19,6 @@
 	border-bottom: none;
 }
 
-.body_companyName {
-	margin-bottom: 10px;
-	border-bottom: none;
-}
-
-.body_salary {
-	margin-bottom: 10px;
-	border-bottom: none;
-}
-
-.body_city {
-	margin-bottom: 10px;
-	border-bottom: none;
-}
-
-.body_occupation {
-	margin-bottom: 10px;
-	border-bottom: none;
-}
-
 @media (max-width: 800px) {
 	.vacancy_box {
 		margin-top: 45px
