@@ -40,10 +40,28 @@ export class CompanyAuthentificationService {
                  ).pipe(map((response: any) => response.json()));
   }
 
+  addArticle(arr: any) {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:3000/account/addArticle',
+                 arr,
+                 {headers: headers} 
+                 ).pipe(map((response: any) => response.json()));
+  }
+
   registerVacancy(arr: any) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     return this.http.post('http://localhost:3000/account/regVacancy',
+                 arr,
+                 {headers: headers} 
+                 ).pipe(map((response: any) => response.json()));
+  }
+
+  registerArticle(arr: any) {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:3000/account/regArticle',
                  arr,
                  {headers: headers} 
                  ).pipe(map((response: any) => response.json()));
@@ -84,11 +102,24 @@ export class CompanyAuthentificationService {
     localStorage.setItem('index', obj.index);
   }
 
+  setArticlesIndex(obj: any) {
+    localStorage.articles = JSON.stringify(obj.articles);
+    localStorage.setItem('articleIndex', obj.index);
+  }
+
   getVacancies() {
     return localStorage.getItem('vacancies');
   }
 
+  getArticles() {
+    return localStorage.getItem('articles');
+  }
+
   getIndex() {
     return localStorage.getItem('index');
+  }
+
+  getArticleIndex() {
+    return localStorage.getItem('articleIndex');
   }
 }

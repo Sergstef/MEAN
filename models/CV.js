@@ -24,3 +24,7 @@ const CV = module.exports = mongoose.model('CV', CVSchema);
 module.exports.addCV = function(newCV, callback) {
 	newCV.save(callback);
 };
+
+module.exports.getCVs = function(callback) {
+    CV.find().exec(callback);
+}

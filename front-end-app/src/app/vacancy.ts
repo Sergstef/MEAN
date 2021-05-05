@@ -1,8 +1,8 @@
 export class Vacancy {
-	_id!: string;
-	name!: string;
+	  _id!: string;
+	  name!: string;
   	email!: string;
- 	city!: string;
+ 	  city!: string;
   	position!: string;
   	salary!: string;
   	occupation!: string;

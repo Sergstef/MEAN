@@ -9,7 +9,8 @@ const CompanySchema = mongoose.Schema({
     email: {type: String, required: true}, 
     password: {type: String, required: true},
     vacancies: {type: Array, required: true},
-    description: {type: String, required: true}
+    description: {type: String, required: true},
+    articles: {type: Array, required: true}
 });
 
 const Company = module.exports = mongoose.model('Company', CompanySchema);
@@ -25,6 +26,16 @@ module.exports.addVacancyToCompany = function(email, vacancy, callback) {
 	 {
 	 	$push: {
 	 		vacancies: vacancy
+	 	}
+	 }, callback)
+};
+
+module.exports.addArticleToCompany = function(email, article, callback) {
+	const query = {email: email};
+	Company.update(query,
+	 {
+	 	$push: {
+	 		articles: article
 	 	}
 	 }, callback)
 };

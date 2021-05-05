@@ -36,6 +36,12 @@ import { VacanciesComponent } from './vacancies/vacancies.component';
 import { VacancyComponent } from './vacancy/vacancy.component';
 import { EmployersComponent } from './employers/employers.component';
 import { EmployerComponent } from './employer/employer.component';
+import { CompanyArticlesComponent } from './company-articles/company-articles.component';
+import { ArticlePageComponent } from './article-page/article-page.component';
+import { ArticleCreationComponent } from './article-creation/article-creation.component';
+import { AdvicesComponent } from './advices/advices.component';
+import { AdviceComponent } from './advice/advice.component';
+import { CvsComponent } from './cvs/cvs.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +71,13 @@ import { EmployerComponent } from './employer/employer.component';
     VacanciesComponent,
     VacancyComponent,
     EmployersComponent,
-    EmployerComponent
+    EmployerComponent,
+    CompanyArticlesComponent,
+    ArticlePageComponent,
+    ArticleCreationComponent,
+    AdvicesComponent,
+    AdviceComponent,
+    CvsComponent
   ],
   imports: [
     BrowserModule,

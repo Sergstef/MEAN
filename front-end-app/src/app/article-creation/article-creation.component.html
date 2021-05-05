@@ -1,0 +1,65 @@
+<div class="article">
+	<div class="article_box">
+		<div class="article_row">
+			<div class="article_heading">Создание статьи</div>
+			<div class="article_form">
+				<form name="mainForm" #articleForm = "ngForm">
+					<div class="form_row">
+						<div class="form_fields">
+							<div class="fields_row">
+								<div class="article_error_row">
+									<div class="article_label">
+										<label for="name">Название статьи</label>
+									</div>
+									<div class="article__input">
+										<input #name="ngModel" class="inputSome" type="text" name="name" ngModel required>
+									</div>
+								</div>
+								<div class="error" *ngIf="name.dirty || name.touched">
+									<div *ngIf = "name.errors?.required">
+										Поле с названием статьи не должно быть пустым
+									</div>	
+								</div>
+								<div class="article_error_row">
+									<div class="article_label">
+										<label for="companyName">Название компании</label>
+									</div>
+									<div class="article__input">
+										<input #companyName="ngModel" class="inputSome" type="text" name="companyName" ngModel required>
+									</div>
+								</div>
+								<div class="error" *ngIf="companyName.dirty || companyName.touched">
+									<div *ngIf = "companyName.errors?.required">
+										        Поле с названием компании не должно быть пустым
+									</div>	
+								</div>
+								<div class="article_error_row">
+									<div class="article_label">
+										<label for="articleText">О себе</label>
+									</div>
+									<div class="article__input">
+										<textarea #articleText="ngModel" name="articleText" ngModel required></textarea>
+									</div>
+								</div>
+								<div class="error" *ngIf="articleText.dirty || articleText.touched">
+									<div *ngIf = "articleText.errors?.required">
+										        Напишите текст
+									</div>	
+								</div>
+							</div>
+						</div>
+						<div class="form_button">
+							<div class="button__row">
+								<div class="button__buttonField">
+									<button type="submit" (click)="addArticle(articleForm.value)" [disabled]="articleForm.invalid">Создать вакансию</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+

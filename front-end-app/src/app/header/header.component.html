@@ -24,10 +24,11 @@
 					</div>
 					<div class="blocks_menu">
 						<nav>
-							<a>Найти работу</a>
+							<a *ngIf="!companyAuthentificationService.isLoggedIn()">Найти работу</a>
+							<a *ngIf="companyAuthentificationService.isLoggedIn()">Резюме</a>
 							<a routerLink="../employers">Работодатели</a>
 							<a routerLink="../vacancies">Вакансии</a>
-							<a>Советы</a>
+							<a routerLink="../advices">Советы</a>
 						</nav>
 					</div>
 				</div>

@@ -1,0 +1,17 @@
+<div class="articles">
+	<div class="articles_box">
+		<div class="articles_heading">
+			Статьи
+		</div>
+		<div class="articles_body">
+			<div class="body_row" >
+				<ul class="body_items">
+				    <li *ngFor="let article of articles"><div class="body_item">
+				    	<div class="item_heading"><a routerLink="../advice/" (click)="sendArticle(article)">{{article.heading}}</a></div>
+				    	<div class="item_companyName">Компания: {{article.companyName}}</div>
+				    </div></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

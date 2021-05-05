@@ -4,6 +4,7 @@ const User = require('../models/user');
 const Company = require('../models/company');
 const CV = require('../models/CV');
 const Vacancy = require('../models/vacancy');
+const Article = require('../models/article');
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
 const config = require('../config/db');
@@ -119,6 +120,30 @@ router.post('/addVacancy', (req, res) => {
 	});
 });
 
+router.post('/addArticle', (req, res) => {
+	let newArticle = new Article({
+		heading: req.body.article.heading,
+		companyName: req.body.article.companyName,
+		articleText: req.body.article.articleText
+	});
+
+	let newCompany = new Company({
+		name: req.body.company.name,
+		adress: req.body.company.adress,
+		phoneNumber: req.body.company.phoneNumber,
+		email: req.body.company.email
+	});
+
+	Company.addArticleToCompany(newCompany.email, newArticle, (err, user) => {
+		if(err){
+			throw err;
+			res.json({success: false, msg: "Статья не была добавлена пользователю"});
+		} 
+		else
+			res.json({success: true, msg: "Статья была добавлена пользователю"});
+	});
+});
+
 router.post('/regCV', (req, res) => {
 	let newCV = new CV({
 		name: req.body.CV.name,
@@ -135,13 +160,6 @@ router.post('/regCV', (req, res) => {
 		faculty: req.body.CV.faculty,
 		speciality: req.body.CV.speciality,
 		aboutYou: req.body.CV.aboutYou
-	});
-
-	let newUser = new User({
-		name: req.body.user.name,
-		surname: req.body.user.surname,
-		phoneNumber: req.body.user.phoneNumber,
-		email: req.body.user.email
 	});
 
 	CV.addCV(newCV, (err, user) => {
@@ -169,13 +187,6 @@ router.post('/regVacancy', (req, res) => {
 		aboutYou: req.body.vacancy.aboutYou
 	});
 
-	let newCompany = new Company({
-		name: req.body.company.name,
-		adress: req.body.company.adress,
-		phoneNumber: req.body.company.phoneNumber,
-		email: req.body.company.email
-	});
-
 	Vacancy.addVacancy(newVacancy, (err, user) => {
 		if(err){
 			throw err;
@@ -183,6 +194,23 @@ router.post('/regVacancy', (req, res) => {
 		} 
 		else
 			res.json({success: true, msg: "Вакансия было добавлен"});
+	});
+});
+
+router.post('/regArticle', (req, res) => {
+	let newArticle = new Article({
+		heading: req.body.article.heading,
+		companyName: req.body.article.companyName,
+		articleText: req.body.article.articleText
+	});
+
+	Article.addArticle(newArticle, (err, user) => {
+		if(err){
+			throw err;
+			res.json({success: false, msg: "Статья не была добавлена"});
+		} 
+		else
+			res.json({success: true, msg: "Статья была добавлена"});
 	});
 });
 
@@ -224,12 +252,32 @@ router.get('/getVacancies', (req, res) => {
 	})
 });
 
+router.get('/getArticles', (req, res) => {
+	Article.getArticles((err, articles) => {
+		if(err) {
+			console.log("Ошибка");
+		} else {
+			res.json(articles);
+		}
+	})
+});
+
 router.get('/getCompanies', (req, res) => {
 	Company.getCompanies((err, companies) => {
 		if(err) {
 			console.log("Ошибка");
 		} else {
 			res.json(companies);
+		}
+	})
+});
+
+router.get('/getCVs', (req, res) => {
+	CV.getCVs((err, cvs) => {
+		if(err) {
+			console.log("Ошибка");
+		} else {
+			res.json(cvs);
 		}
 	})
 });
@@ -264,7 +312,8 @@ router.post('/updateCompany', (req, res) => {
 					phoneNumber: company.phoneNumber,
 					email: company.email,
 					vacancies: company.vacancies,
-					description: company.description
+					description: company.description,
+					articles: company.articles
 				}});
 		});
 });
@@ -289,7 +338,8 @@ router.post('/authCompany', (req, res) => {
 					phoneNumber: company.phoneNumber,
 					email: company.email,
 					vacancies: company.vacancies,
-					description: company.description
+					description: company.description,
+					articles: company.articles
 				}}); 
 			} else {
 				return res.json({success: false, msg: "Пароли не совпадают"}); 

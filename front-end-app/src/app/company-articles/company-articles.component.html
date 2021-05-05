@@ -1,0 +1,10 @@
+<div class="articles">
+	<div class="createButton">
+		<button class="buttonItem" type="button" routerLink="../../article-creation">Создать статью</button>
+	</div>
+	<div class="articles_fields">
+		<ul>
+    		<li *ngFor="let article of company.articles; let i = index"><a [routerLink]="['../article-page']" (click)="setIndex(i)">{{article.heading}}</a></li>
+		</ul>
+	</div>
+</div>

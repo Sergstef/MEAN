@@ -26,6 +26,11 @@ import { VacanciesComponent } from './vacancies/vacancies.component';
 import { VacancyComponent } from './vacancy/vacancy.component';
 import { EmployersComponent } from './employers/employers.component';
 import { EmployerComponent } from './employer/employer.component';
+import { CompanyArticlesComponent } from './company-articles/company-articles.component';
+import { ArticlePageComponent } from './article-page/article-page.component';
+import { ArticleCreationComponent } from './article-creation/article-creation.component';
+import { AdvicesComponent } from './advices/advices.component';
+import { AdviceComponent } from './advice/advice.component';
 
 const routes: Routes = [
 	{path: '', component: HomeComponent},
@@ -51,13 +56,18 @@ const routes: Routes = [
 			{path: 'company-documents', component: CompanyDocumentsComponent},
 			{path: 'company-responses', component: CompanyResponsesComponent},
 			{path: '', redirectTo: 'company-profile', pathMatch: 'full'},
-			{path: 'vacancy-page', component: VacancyPageComponent}
+			{path: 'vacancy-page', component: VacancyPageComponent},
+			{path: 'article-page', component: ArticlePageComponent},
+			{path: 'company-articles', component: CompanyArticlesComponent}
 		]
 	},
 	{path: 'cvcreation', component: CVcreationComponent},
 	{path: 'vacancy-creation', component: VacancyCreationComponent},
+	{path: 'article-creation', component: ArticleCreationComponent},
 	{path: 'vacancies', component: VacanciesComponent},
+	{path: 'advices', component: AdvicesComponent},
 	{path: 'vacancy', component: VacancyComponent},
+	{path: 'advice', component: AdviceComponent},
 	{path: 'employers', component: EmployersComponent},
 	{path: 'employer', component: EmployerComponent}
 ];
