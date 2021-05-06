@@ -31,7 +31,7 @@ import { ArticlePageComponent } from './article-page/article-page.component';
 import { ArticleCreationComponent } from './article-creation/article-creation.component';
 import { AdvicesComponent } from './advices/advices.component';
 import { AdviceComponent } from './advice/advice.component';
-import { CvsComponent } from './cvs/cvs.component';
+import { CvsListComponent } from './cvs-list/cvs-list.component';
 
 const routes: Routes = [
 	{path: '', component: HomeComponent},
@@ -67,7 +67,7 @@ const routes: Routes = [
 	{path: 'article-creation', component: ArticleCreationComponent},
 	{path: 'vacancies', component: VacanciesComponent},
 	{path: 'advices', component: AdvicesComponent},
-	{path: 'cvs', component: CvsComponent},
+	{path: 'cvs-list', component: CvsListComponent},
 	{path: 'vacancy', component: VacancyComponent},
 	{path: 'advice', component: AdviceComponent},
 	{path: 'employers', component: EmployersComponent},
