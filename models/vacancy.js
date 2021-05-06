@@ -23,7 +23,7 @@ module.exports.addVacancy = function(newVacancy, callback) {
 };
 
 module.exports.deleteVacancy = function(vacancyId, callback) {
-    Vacancy.deleteOne({_id: vacancyId}).exec(callback);
+    Vacancy.deleteOne({_id: vacancyId}, callback);
 };
 
 module.exports.getVacancies = function(callback) {

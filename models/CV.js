@@ -25,6 +25,10 @@ module.exports.addCV = function(newCV, callback) {
 	newCV.save(callback);
 };
 
+module.exports.deleteCV = function(cvId, callback) {
+    CV.deleteOne({_id: cvId}, callback);
+};
+
 module.exports.getCVs = function(callback) {
     CV.find().exec(callback);
 }

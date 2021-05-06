@@ -50,26 +50,29 @@ export class CVcreationComponent implements OnInit {
         this.router.navigate(['/dashboard/profile']);
       } else {
         console.log(data.msg);
+        const CVUserIdArr = {
+          id: data._id,
+          CV: obj,
+          user: this.user
+        }
+        this.authentificationService.registerCV(CVUserIdArr).subscribe(data => {
+          if(!data.success) {
+            console.log('err.message');
+            console.log(data.msg);
+            this.router.navigate(['/dashboard/profile']);
+          } else {
+            console.log(data.msg);
+          }      
+        });
       }  
     });
-
-  	this.authentificationService.registerCV(CVUserArr).subscribe(data => {
-  		if(!data.success) {
-        console.log('err.message');
-  			console.log(data.msg);
-  			this.router.navigate(['/dashboard/profile']);
-  		} else {
-  			console.log(data.msg);
-  		}  		
-  	});
 
     this.authentificationService.updateUser(this.user).subscribe(data => {
       if(!data.success) {
         console.log(data.msg);
         this.router.navigate(['/dashboard/profile']);
       } else {
-        this.authentificationService.logout();
-        console.log('Вы успешно обновили поль');
+        console.log(data.user);
         this.router.navigate(['/dashboard/user-cvs']);
         this.authentificationService.storeUser(data.token, data.user);
       }  

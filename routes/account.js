@@ -78,13 +78,15 @@ router.post('/addCV', (req, res) => {
 		email: req.body.user.email
 	});
 
-	User.addCVToUser(newUser.email, newCV, (err, user) => {
+	User.addCVToUser(newUser.email, newCV, (err, result) => {
 		if(err){
 			throw err;
 			res.json({success: false, msg: "Резюме не было добавлен пользователю"});
 		} 
-		else
-			res.json({success: true, msg: "Резюме было добавлен пользователю"});
+		else {
+			const id = result.cvs[result.cvs.length - 1]._id;
+			res.json({success: true, msg: "Резюме было добавлен пользователю", _id: id});
+		}
 	});
 });
 
@@ -110,13 +112,15 @@ router.post('/addVacancy', (req, res) => {
 		email: req.body.company.email
 	});
 
-	Company.addVacancyToCompany(newCompany.email, newVacancy, (err, user) => {
+	Company.addVacancyToCompany(newCompany.email, newVacancy, (err, result) => {
 		if(err){
 			throw err;
 			res.json({success: false, msg: "Вакансия не было добавлен пользователю"});
 		} 
-		else
-			res.json({success: true, msg: "Вакансия было добавлен пользователю"});
+		else {
+			const id = result.vacancies[result.vacancies.length - 1]._id;
+			res.json({success: true, msg: "Вакансия было добавлен пользователю", _id: id});
+		}
 	});
 });
 
@@ -142,6 +146,28 @@ router.post('/deleteVac', (req, res) => {
 	});
 });
 
+router.post('/deleteCV', (req, res) => {
+	let newCV = new CV({
+		_id: req.body.cv._id
+	});
+
+	let newUser = new User({
+		name: req.body.user.name,
+		surname: req.body.user.surname,
+		phoneNumber: req.body.user.phoneNumber,
+		email: req.body.user.email
+	});
+
+	User.deleteCVFromUser(newUser.email, newCV._id, (err, user) => {
+		if(err){
+			throw err;
+			res.json({success: false, msg: "Резюме не было удалено из пользователя"});
+		} 
+		else
+			res.json({success: true, msg: "Резюме было удалено из пользователя"});
+	});
+});
+
 router.post('/deleteVacFromDatabase', (req, res) => {
 	let newVacancy = new Vacancy({
 		_id: req.body.vacancy._id
@@ -153,6 +179,21 @@ router.post('/deleteVacFromDatabase', (req, res) => {
 		} 
 		else
 			res.json({success: true, msg: "Вакансия была удалена"});
+	});
+});
+
+router.post('/deleteCVFromDatabase', (req, res) => {
+	console.log(req.body.cv._id);
+	let newCV = new CV({
+		_id: req.body.cv._id
+	});
+	CV.deleteCV(newCV._id, (err, user) => {
+		if(err){
+			throw err;
+			res.json({success: false, msg: "Резюме не было удалено"});
+		} 
+		else
+			res.json({success: true, msg: "Резюме было удалено"});
 	});
 });
 
@@ -182,6 +223,7 @@ router.post('/addArticle', (req, res) => {
 
 router.post('/regCV', (req, res) => {
 	let newCV = new CV({
+		_id: req.body.id,
 		name: req.body.CV.name,
 		surname: req.body.CV.surname,
 		email: req.body.CV.email,
@@ -210,6 +252,7 @@ router.post('/regCV', (req, res) => {
 
 router.post('/regVacancy', (req, res) => {
 	let newVacancy = new Vacancy({
+		_id: req.body.id,
 		name: req.body.vacancy.name,
 		email: req.body.vacancy.email,
 		city: req.body.vacancy.city,

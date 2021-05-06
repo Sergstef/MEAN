@@ -11,6 +11,7 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 export class VacancyCreationComponent implements OnInit {
 
   company: any;
+  id: any;
 
   constructor(private router: Router, private companyAuthentificationService: CompanyAuthentificationService) { 
   	this.company = companyAuthentificationService.getCompany();
@@ -47,18 +48,23 @@ export class VacancyCreationComponent implements OnInit {
         this.router.navigate(['/company-dashboard/company-profile']);
       } else {
         console.log(data.msg);
+        const vacancyCompanyIdArr = {
+          id: data._id,
+          vacancy: obj,
+          company: this.company
+        }
+        console.log(vacancyCompanyIdArr.id);
+        this.companyAuthentificationService.registerVacancy(vacancyCompanyIdArr).subscribe(data => {
+          if(!data.success) {
+            console.log('err.message');
+            console.log(data.msg);
+            this.router.navigate(['/company-dashboard/company-profile']);
+          } else {
+            console.log(data.msg);
+          }      
+        });
       }  
     });
-
-  	this.companyAuthentificationService.registerVacancy(vacancyCompanyArr).subscribe(data => {
-  		if(!data.success) {
-        console.log('err.message');
-  			console.log(data.msg);
-  			this.router.navigate(['/company-dashboard/company-profile']);
-  		} else {
-  			console.log(data.msg);
-  		}  		
-  	});
 
     this.companyAuthentificationService.updateCompany(this.company).subscribe(data => {
       if(!data.success) {

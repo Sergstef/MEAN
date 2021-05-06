@@ -20,12 +20,15 @@ module.exports.getUserByEmail = function(email, callback) {
 
 module.exports.addCVToUser = function(email, CV, callback) {
 	const query = {email: email};
-	User.update(query,
+	User.findOneAndUpdate(query,
 	 {
 	 	$push: {
 	 		cvs: CV
 	 	}
-	 }, callback)
+	 },
+	 {                              
+        new: true
+     }, callback)
 };
 
 module.exports.addUser = function(newUser, callback) {
@@ -41,6 +44,15 @@ module.exports.addUser = function(newUser, callback) {
 	})
 };
 
+module.exports.deleteCVFromUser = function(email, cvId, callback) {
+	const query = {email: email};
+	User.update(query,
+	 {
+	 	$pull: {
+	 		cvs: {_id: cvId}
+	 	}
+	 }, callback)
+};
 
 module.exports.comparePass = function(passFromUser, userDBPass, callback) {
 	bcrypt.compare(passFromUser, userDBPass, (err, isMatch) => {

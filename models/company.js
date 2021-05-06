@@ -22,12 +22,15 @@ module.exports.getCompanyByEmail = function(email, callback) {
 
 module.exports.addVacancyToCompany = function(email, vacancy, callback) {
 	const query = {email: email};
-	Company.update(query,
+	Company.findOneAndUpdate(query,
 	 {
 	 	$push: {
 	 		vacancies: vacancy
 	 	}
-	 }, callback)
+	 }, 
+	 {                              
+        new: true
+     }, callback)
 };
 
 module.exports.deleteVacancyFromCompany = function(email, vacancyId, callback) {
