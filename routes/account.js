@@ -120,6 +120,42 @@ router.post('/addVacancy', (req, res) => {
 	});
 });
 
+router.post('/deleteVac', (req, res) => {
+	let newVacancy = new Vacancy({
+		_id: req.body.vacancy._id
+	});
+
+	let newCompany = new Company({
+		name: req.body.company.name,
+		adress: req.body.company.adress,
+		phoneNumber: req.body.company.phoneNumber,
+		email: req.body.company.email
+	});
+
+	Company.deleteVacancyFromCompany(newCompany.email, newVacancy._id, (err, user) => {
+		if(err){
+			throw err;
+			res.json({success: false, msg: "Вакансия не была удалена из компании"});
+		} 
+		else
+			res.json({success: true, msg: "Вакансия была удалена из компании"});
+	});
+});
+
+router.post('/deleteVacFromDatabase', (req, res) => {
+	let newVacancy = new Vacancy({
+		_id: req.body.vacancy._id
+	});
+	Vacancy.deleteVacancy(newVacancy._id, (err, user) => {
+		if(err){
+			throw err;
+			res.json({success: false, msg: "Вакансия не была удалена"});
+		} 
+		else
+			res.json({success: true, msg: "Вакансия была удалена"});
+	});
+});
+
 router.post('/addArticle', (req, res) => {
 	let newArticle = new Article({
 		heading: req.body.article.heading,

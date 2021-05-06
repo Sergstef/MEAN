@@ -22,6 +22,10 @@ module.exports.addVacancy = function(newVacancy, callback) {
 	newVacancy.save(callback);
 };
 
+module.exports.deleteVacancy = function(vacancyId, callback) {
+    Vacancy.deleteOne({_id: vacancyId}).exec(callback);
+};
+
 module.exports.getVacancies = function(callback) {
     Vacancy.find().exec(callback);
 }

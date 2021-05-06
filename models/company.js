@@ -30,6 +30,16 @@ module.exports.addVacancyToCompany = function(email, vacancy, callback) {
 	 }, callback)
 };
 
+module.exports.deleteVacancyFromCompany = function(email, vacancyId, callback) {
+	const query = {email: email};
+	Company.update(query,
+	 {
+	 	$pull: {
+	 		vacancies: {_id: vacancyId}
+	 	}
+	 }, callback)
+};
+
 module.exports.addArticleToCompany = function(email, article, callback) {
 	const query = {email: email};
 	Company.update(query,

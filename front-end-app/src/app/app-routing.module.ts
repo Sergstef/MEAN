@@ -32,6 +32,7 @@ import { ArticleCreationComponent } from './article-creation/article-creation.co
 import { AdvicesComponent } from './advices/advices.component';
 import { AdviceComponent } from './advice/advice.component';
 import { CvsListComponent } from './cvs-list/cvs-list.component';
+import { PublicCvPageComponent } from './public-cv-page/public-cv-page.component';
 
 const routes: Routes = [
 	{path: '', component: HomeComponent},
@@ -69,6 +70,7 @@ const routes: Routes = [
 	{path: 'advices', component: AdvicesComponent},
 	{path: 'cvs-list', component: CvsListComponent},
 	{path: 'vacancy', component: VacancyComponent},
+	{path: 'public-cv-page', component: PublicCvPageComponent},
 	{path: 'advice', component: AdviceComponent},
 	{path: 'employers', component: EmployersComponent},
 	{path: 'employer', component: EmployerComponent}

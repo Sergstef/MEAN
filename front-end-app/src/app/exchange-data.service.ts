@@ -39,4 +39,5 @@ export class ExchangeDataService {
   getCV() {
     return localStorage.getItem('cv');
   }
+
 }

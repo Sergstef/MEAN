@@ -1,0 +1,16 @@
+.buttonItem {
+	height: 60px;
+	width: 110px;
+	background-color: #f0f2d3;
+	border: 1px solid #c8cf7e;
+	border-radius: 5px;
+	color: #bdc754;
+	font-weight: bold;
+	font-size: 16px;
+	letter-spacing: 1px;
+}
+
+.buttonItem:hover {
+	background-color: #bdc754;
+	color: #fafce3;
+}

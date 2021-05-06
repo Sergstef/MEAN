@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoadDataService } from '../load-data.service';
 import { ExchangeDataService } from '../exchange-data.service';
-import { User } from '../user';
+import { CV } from '../CV';
 
 @Component({
   selector: 'app-cvs-list',
@@ -10,7 +10,7 @@ import { User } from '../user';
 })
 export class CvsListComponent implements OnInit {
 
-  users!: Array<User>;
+  cvs!: Array<CV>;
 
   constructor(private loadDataService: LoadDataService, private exchangeDataService: ExchangeDataService) { 
   }
@@ -20,12 +20,12 @@ export class CvsListComponent implements OnInit {
   }
 
   get() {
-  	this.loadDataService.loadVacancies()
-  					.subscribe((results) => {this.users = results;});
+  	this.loadDataService.loadCVs()
+  					.subscribe((results) => {this.cvs = results;});
   }
 
-  sendUser(user: any) {
-    this.exchangeDataService.changeVacancy(user);
+  sendCV(cv: any) {
+    this.exchangeDataService.changeCV(cv);
   }
 
 

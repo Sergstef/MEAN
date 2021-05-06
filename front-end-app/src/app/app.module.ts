@@ -42,6 +42,7 @@ import { ArticleCreationComponent } from './article-creation/article-creation.co
 import { AdvicesComponent } from './advices/advices.component';
 import { AdviceComponent } from './advice/advice.component';
 import { CvsListComponent } from './cvs-list/cvs-list.component';
+import { PublicCvPageComponent } from './public-cv-page/public-cv-page.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +78,8 @@ import { CvsListComponent } from './cvs-list/cvs-list.component';
     ArticleCreationComponent,
     AdvicesComponent,
     AdviceComponent,
-    CvsListComponent
+    CvsListComponent,
+    PublicCvPageComponent
   ],
   imports: [
     BrowserModule,

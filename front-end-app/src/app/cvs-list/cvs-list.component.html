@@ -1,1 +1,18 @@
-<p>cvs-list works!</p>
+<div class="cvs">
+	<div class="cvs_box">
+		<div class="cvs_heading">
+			Резюме
+		</div>
+		<div class="cvs_body">
+			<div class="body_row" >
+				<ul class="body_items">
+				    <li *ngFor="let cv of cvs"><div class="body_item">
+				    	<div class="item_position"><a routerLink="../public-cv-page" (click)="sendCV(cv)">{{cv.position}}</a></div>
+				    	<div class="item_name">{{cv.name}}</div>
+				    	<div class="item_salary">Зарплата: {{cv.salary}}</div>
+				    </div></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

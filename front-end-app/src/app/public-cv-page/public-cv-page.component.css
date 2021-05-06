@@ -1,0 +1,26 @@
+.cv_box {
+	margin: 35px 45px;
+}
+
+.body_row {
+	display: flex;
+	flex-direction: column;
+}
+
+.item {
+	margin-bottom: 20px;
+	font-size: 18px;
+	border-bottom: 1px solid #cad2db;
+}
+
+.body_vacancyName {
+	font-size: 25px;
+	margin-bottom: 10px;
+	border-bottom: none;
+}
+
+@media (max-width: 800px) {
+	.cv_box {
+		margin-top: 45px
+	}
+}
