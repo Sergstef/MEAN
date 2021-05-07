@@ -38,18 +38,22 @@ export class ArticleCreationComponent implements OnInit {
         this.router.navigate(['/company-dashboard/company-profile']);
       } else {
         console.log(data.msg);
-      }  
+        const articleCompanyIdArr = {
+          id: data._id,
+          article: obj,
+          company: this.company
+        }
+        this.companyAuthentificationService.registerArticle(articleCompanyIdArr).subscribe(data => {
+          if(!data.success) {
+            console.log('err.message');
+            console.log(data.msg);
+            this.router.navigate(['/company-dashboard/company-profile']);
+          } else {
+            console.log(data.msg);
+          }      
+        });    
+      }
     });
-
-  	this.companyAuthentificationService.registerArticle(articleCompanyArr).subscribe(data => {
-  		if(!data.success) {
-        console.log('err.message');
-  			console.log(data.msg);
-  			this.router.navigate(['/company-dashboard/company-profile']);
-  		} else {
-  			console.log(data.msg);
-  		}  		
-  	});
 
     this.companyAuthentificationService.updateCompany(this.company).subscribe(data => {
       if(!data.success) {

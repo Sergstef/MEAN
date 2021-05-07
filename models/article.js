@@ -14,6 +14,10 @@ module.exports.addArticle = function(newArticle, callback) {
 	newArticle.save(callback);
 };
 
+module.exports.deleteArticle = function(articleId, callback) {
+    Article.deleteOne({_id: articleId}, callback);
+};
+
 module.exports.getArticles = function(callback) {
     Article.find().exec(callback);
 }

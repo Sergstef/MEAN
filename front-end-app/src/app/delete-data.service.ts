@@ -18,6 +18,15 @@ export class DeleteDataService {
                  ).pipe(map((response: any) => response.json()));
   }
 
+  deleteArticle(obj: any) {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:3000/account/deleteArticle',
+                 obj,
+                 {headers: headers} 
+                 ).pipe(map((response: any) => response.json()));
+  }
+
   deleteCV(obj: any) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -31,6 +40,15 @@ export class DeleteDataService {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     return this.http.post('http://localhost:3000/account/deleteVacFromDatabase',
+                 obj,
+                 {headers: headers} 
+                 ).pipe(map((response: any) => response.json()));
+  }
+
+  deleteArticleFromDatabase(obj: any) {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:3000/account/deleteArticleFromDatabase',
                  obj,
                  {headers: headers} 
                  ).pipe(map((response: any) => response.json()));

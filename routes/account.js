@@ -124,6 +124,32 @@ router.post('/addVacancy', (req, res) => {
 	});
 });
 
+router.post('/addArticle', (req, res) => {
+	let newArticle = new Article({
+		heading: req.body.article.heading,
+		companyName: req.body.article.companyName,
+		articleText: req.body.article.articleText
+	});
+
+	let newCompany = new Company({
+		name: req.body.company.name,
+		adress: req.body.company.adress,
+		phoneNumber: req.body.company.phoneNumber,
+		email: req.body.company.email
+	});
+
+	Company.addArticleToCompany(newCompany.email, newArticle, (err, result) => {
+		if(err){
+			throw err;
+			res.json({success: false, msg: "Статья не была добавлена пользователю"});
+		} 
+		else{
+			const id = result.articles[result.articles.length - 1]._id;
+			res.json({success: true, msg: "Статья была добавлена пользователю", _id: id});
+		}
+	});
+});
+
 router.post('/deleteVac', (req, res) => {
 	let newVacancy = new Vacancy({
 		_id: req.body.vacancy._id
@@ -143,6 +169,28 @@ router.post('/deleteVac', (req, res) => {
 		} 
 		else
 			res.json({success: true, msg: "Вакансия была удалена из компании"});
+	});
+});
+
+router.post('/deleteArticle', (req, res) => {
+	let newArticle = new Article({
+		_id: req.body.article._id
+	});
+
+	let newCompany = new Company({
+		name: req.body.company.name,
+		adress: req.body.company.adress,
+		phoneNumber: req.body.company.phoneNumber,
+		email: req.body.company.email
+	});
+
+	Company.deleteArticleFromCompany(newCompany.email, newArticle._id, (err, user) => {
+		if(err){
+			throw err;
+			res.json({success: false, msg: "Статья не была удалена из компании"});
+		} 
+		else
+			res.json({success: true, msg: "Статья была удалена из компании"});
 	});
 });
 
@@ -182,6 +230,20 @@ router.post('/deleteVacFromDatabase', (req, res) => {
 	});
 });
 
+router.post('/deleteArticleFromDatabase', (req, res) => {
+	let newArticle = new Article({
+		_id: req.body.article._id
+	});
+	Article.deleteArticle(newArticle._id, (err, user) => {
+		if(err){
+			throw err;
+			res.json({success: false, msg: "Статья не была удалена"});
+		} 
+		else
+			res.json({success: true, msg: "Статья была удалена"});
+	});
+});
+
 router.post('/deleteCVFromDatabase', (req, res) => {
 	console.log(req.body.cv._id);
 	let newCV = new CV({
@@ -194,30 +256,6 @@ router.post('/deleteCVFromDatabase', (req, res) => {
 		} 
 		else
 			res.json({success: true, msg: "Резюме было удалено"});
-	});
-});
-
-router.post('/addArticle', (req, res) => {
-	let newArticle = new Article({
-		heading: req.body.article.heading,
-		companyName: req.body.article.companyName,
-		articleText: req.body.article.articleText
-	});
-
-	let newCompany = new Company({
-		name: req.body.company.name,
-		adress: req.body.company.adress,
-		phoneNumber: req.body.company.phoneNumber,
-		email: req.body.company.email
-	});
-
-	Company.addArticleToCompany(newCompany.email, newArticle, (err, user) => {
-		if(err){
-			throw err;
-			res.json({success: false, msg: "Статья не была добавлена пользователю"});
-		} 
-		else
-			res.json({success: true, msg: "Статья была добавлена пользователю"});
 	});
 });
 
@@ -278,6 +316,7 @@ router.post('/regVacancy', (req, res) => {
 
 router.post('/regArticle', (req, res) => {
 	let newArticle = new Article({
+		_id: req.body.id,
 		heading: req.body.article.heading,
 		companyName: req.body.article.companyName,
 		articleText: req.body.article.articleText

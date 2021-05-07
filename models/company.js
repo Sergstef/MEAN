@@ -43,14 +43,27 @@ module.exports.deleteVacancyFromCompany = function(email, vacancyId, callback) {
 	 }, callback)
 };
 
-module.exports.addArticleToCompany = function(email, article, callback) {
+module.exports.deleteArticleFromCompany = function(email, articleId, callback) {
 	const query = {email: email};
 	Company.update(query,
+	 {
+	 	$pull: {
+	 		articles: {_id: articleId}
+	 	}
+	 }, callback)
+};
+
+module.exports.addArticleToCompany = function(email, article, callback) {
+	const query = {email: email};
+	Company.findOneAndUpdate(query,
 	 {
 	 	$push: {
 	 		articles: article
 	 	}
-	 }, callback)
+	 },
+	 {                              
+        new: true
+     }, callback)
 };
 
 module.exports.addCompany = function(newCompany, callback) {
